@@ -15,6 +15,7 @@ def score(x: String):Int = {
   score += Map('X' -> 1, 'Y' -> 2, 'Z' -> 3).get(x(2)).get
   score 
 }
+
 @main def main() = {
   val lines: List[String] = Source.fromFile("day2.txt").getLines.toList
   println(lines.map(score));
