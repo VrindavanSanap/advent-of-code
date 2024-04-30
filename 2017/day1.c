@@ -20,11 +20,9 @@ int main() {
     int curr = 0;
     while (fgets(buffer, sizeof(buffer), file_pointer) != NULL) {
       size_t buffer_size = strlen(buffer);
-
       if (i++ == 0){
         first_num = atoi(&buffer[0]);
       }
-
       if (buffer[0] == ' ' || buffer[0] == '\n'){
         prev = first_num;
         if (prev == curr){
