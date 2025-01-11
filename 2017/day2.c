@@ -5,25 +5,8 @@
 #include <string.h>
 
 #define MAX_LINE_LENGTH 1024
-char* strip(char* str) {
-  char* start = str;
-  while (*start && isspace(*start)) {
-    start++;
-  }
-  char* end = str + strlen(str) - 1;
-  while (end > start && isspace(*end)) {
-    *end-- = '\0';
-  }
-  size_t len = end - start + 1;
-  char* trimmed_str = (char*)malloc((len + 1) * sizeof(char));
-  if (trimmed_str == NULL) {
-    return NULL;  // Memory allocation failed
-  }
-  memcpy(trimmed_str, start, len);
-  trimmed_str[len] = '\0';  // Null-terminate the string
-  return trimmed_str;
-}
 int main() {
+
   FILE* file = fopen("day2.txt", "r");
   if (file == NULL) {
     perror("Error opening file");

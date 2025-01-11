@@ -1,28 +1,46 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-
-
-int main() {
-  FILE* file_pointer;
-  char filename[] = "day1.txt";
-  char buffer[20];
-  int total_fuel = 0;
-  file_pointer = fopen(filename, "r");
-  if (file_pointer == NULL) {
-    printf("Unable to open file.\n");
-    return 1;
+#include <stdbool.h>
+struct Node{
+  int data;          // data
+  struct Node* next; // pointer
+};
+struct Node* create_node(int data){
+  struct Node* new_node = (struct Node*) malloc(sizeof(struct Node));
+  new_node->data = data;
+  new_node->next = NULL;
+  return new_node;
+    
+}
+int main(){
+  FILE* file1 = fopen("day1.txt", "r");
+  FILE* file2 = fopen("day1.txt", "r");
+  FILE* file3 = fopen("day1.txt", "r");
+  if(file1 == NULL){
+    perror("Unable to open file");
+    return 1; 
   }
-  while (fgets(buffer, sizeof(buffer), file_pointer) != NULL) {
-    int len = (int)strlen(buffer);
-    int mass = atoi(buffer);
-    int fuel = mass_to_fuel(mass);
-    printf("%d \n", fuel);
-    total_fuel += fuel;
-    printf("Total fuel %d \n", total_fuel);
-  }
+  char line1[31];
+  char line2[31];
+  char line3[31];
+  int n_found= false;  
+  while(fgets(line1, sizeof(line1), file1) && !n_found){
+    int n1 = atoi(line1);
+    while(fgets(line2, sizeof(line2), file2)&& !n_found){
+      int n2 = atoi(line2);
 
-  fclose(file_pointer);
-  printf("Total fuel = %d", total_fuel);
+      while(fgets(line3, sizeof(line3), file3)&& !n_found){
+        int n3 = atoi(line3);
+        if (n1 + n2 + n3 == 2020){
+          printf("%d * %d * %d = %d\n",n1, n2, n3 , n1*n2*n3);
+          n_found = true;
+        }
+      }
+
+      rewind(file3);
+    }
+    rewind(file2);
+   
+  }
   return 0;
 }
