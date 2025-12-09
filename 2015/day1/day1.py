@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 with open("day1.txt") as f:
   data = f.read().strip()
 
@@ -7,4 +9,4 @@ for char in data:
     floor_n += 1
   elif (char == ")"):
     floor_n -= 1
-  print(f"Floor n: {floor_n}")
+  print(f"Floor no: {floor_n}")

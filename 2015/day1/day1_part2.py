@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 with open("day1.txt") as f:
   data = f.read().strip()
 
@@ -9,5 +11,5 @@ for i, char in enumerate(data):
     floor_n -= 1
   print(f"i={i} Floor: {floor_n}")
   if floor_n == -1:
-    print(f"Reached basement!!")
+    print(f"Reached basement at charater postion {i + 1}!!")
     break
