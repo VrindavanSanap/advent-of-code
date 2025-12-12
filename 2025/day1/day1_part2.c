@@ -27,10 +27,11 @@ int count_crossing(int position, int new_position, int distance) {
   n_crossings = abs(new_position / 100);
   if (new_position < 0) {
     n_crossings += 1;
+    if (position == 0) {
+      return n_crossings - 1;
+    }
   }
-  if (position == 0) {
-    return n_crossings - 1;
-  }
+
   return n_crossings;
 }
 
