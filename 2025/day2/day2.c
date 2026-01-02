@@ -1,7 +1,7 @@
-#include <stdio.h>
-#include <stdbool.h>
 #include <math.h>
-unsigned long long count_digits(unsigned long long num){
+#include <stdbool.h>
+#include <stdio.h>
+unsigned long long count_digits(unsigned long long num) {
   unsigned long long count = 0;
   while (num != 0) {
     num /= 10;
@@ -9,33 +9,29 @@ unsigned long long count_digits(unsigned long long num){
   }
   return count;
 }
-unsigned long long ipow(unsigned long long num, unsigned long long power){
+unsigned long long ipow(unsigned int num, unsigned int power) {
   unsigned long long result = 1;
   for (unsigned long long i = 0; i < power; i++) {
     result *= num;
   }
   return result;
-
 }
 
-bool check_valid(unsigned long long num){
+bool check_valid(unsigned long long num) {
   /*
-  Returns true if num is valid 
+  Returns true if num is valid
   Returns false if num is invalid
   */
   int num_digits = count_digits(num);
-  if ((num_digits%2)==1){
+  if ((num_digits % 2) == 1) {
     return true;
   }
 
-  unsigned long long divisor = ipow(10, (num_digits / 2));
-  unsigned long long first = num / divisor;
-  unsigned long long second = num % divisor;
-  if (first == second){
+  unsigned long long divisor = ipow(10, (num_digits / 2)) + 1;
+  if ((num % divisor) == 0) {
     return false;
   }
   return true;
-
 }
 
 int main() {
@@ -49,8 +45,6 @@ int main() {
   char* buffer = NULL;
   ssize_t buffer_size;
   size_t len;
-
-  int n_invalid = 0;
   unsigned long long invalid_sum = 0ULL;
   while ((buffer_size = getdelim(&buffer, &len, ',', fp)) != -1) {
     // buffer[buffer_size - 1] = '\0';
@@ -62,17 +56,15 @@ int main() {
     } else {
       printf("Parsing failed.\n");
     }
-    for (unsigned long i = start_num; i <= end_num; i++) {
+    for (unsigned long long i = start_num; i <= end_num; i++) {
       bool is_not_valid = !check_valid(i);
-      if (is_not_valid){
+      if (is_not_valid) {
         invalid_sum += i;
-        n_invalid++;
-        printf("%lu -> Invalid\n", i);
-      }else{
+        printf("%llu -> Invalid\n", i);
+      } else {
         // printf("%d -> Valid\n", i);
       }
     }
-    printf("Number of invalid IDs = %d \n", n_invalid);
     printf("Sum of invalid IDs = %llu\n", invalid_sum);
   }
   fclose(fp);
