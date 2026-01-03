@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.10)
+project(MyCProject)
+
+# Add the library directory first so it is available to apps
+add_subdirectory(libs/dynamic_array)
+
+# Add your application directories
+add_subdirectory(src/2025/day5)
