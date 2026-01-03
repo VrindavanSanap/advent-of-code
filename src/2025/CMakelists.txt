@@ -1,0 +1,8 @@
+add_executable(day5 ./day5/day5.c)
+
+# Link the shared library. 
+# CMake automatically adds the include path from step (2).
+target_link_libraries(day5 PRIVATE dynamic_array)
+
+file(COPY "./day5/day5_smol.txt" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}")
+file(COPY "./day5/day5.txt" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}")

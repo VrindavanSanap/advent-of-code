@@ -5,4 +5,4 @@ project(MyCProject)
 add_subdirectory(libs/dynamic_array)
 
 # Add your application directories
-add_subdirectory(src/2025/day5)
+add_subdirectory(src/2025/)
