@@ -218,3 +218,10 @@ void da_free(dynamic_array *da) {
   free(da->data);
   free(da);
 }
+
+void da_sort(dynamic_array *da, int (*compare_fn)(const void *, const void *)) {
+    if (!da || !compare_fn) return;
+    
+    // We can access da->data here because we are inside dynamic_array.c
+    qsort(da->data, da->num_elements, da->element_size, compare_fn);
+}
