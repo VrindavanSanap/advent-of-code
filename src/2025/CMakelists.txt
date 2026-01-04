@@ -9,3 +9,12 @@ target_link_libraries(day5_part2 PRIVATE dynamic_array)
 
 file(COPY "./day5/day5_smol.txt" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}")
 file(COPY "./day5/day5.txt" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}")
+
+add_executable(day6 ./day6/day6.c)
+add_executable(day6_part2 ./day6/day6_part2.c)
+
+target_link_libraries(day6 PRIVATE dynamic_array)
+target_link_libraries(day6_part2 PRIVATE dynamic_array)
+
+file(COPY "./day6/day6_smol.txt" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}")
+file(COPY "./day6/day6.txt" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}")
