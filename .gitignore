@@ -1,11 +1,19 @@
 a.out
-
-# CMake artifacts
+# CMake
 build/
 CMakeCache.txt
 CMakeFiles/
+CMakeScripts/
 cmake_install.cmake
 install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_CPack_Packages/
+CPackConfig.cmake
+CPackSourceConfig.cmake
+build
+build/
 Makefile
 *.cmake
 *.make
+
