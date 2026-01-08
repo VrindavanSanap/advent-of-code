@@ -39,8 +39,8 @@ int main(int argc, char *argv[]) {
     int num_points = da_get_size(points);
     uint64_t max_area = 0;
     for (size_t i = 0; i < num_points; i++) {
+        da_get_at(points, i, &point_i);
         for (size_t j = i + 1; j < num_points; j++) {
-            da_get_at(points, i, &point_i);
             da_get_at(points, j, &point_j);
             uint64_t area = area_rect(point_i, point_j);
             if (area > max_area) {
