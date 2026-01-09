@@ -7,3 +7,5 @@ add_subdirectory(libs/dynamic_array)
 # Add your application directories
 add_subdirectory(src/2025/)
 add_subdirectory(src/2015/day12)
+add_subdirectory(src/2015/day13)
+add_subdirectory(src/2016/day5)

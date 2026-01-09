@@ -1,6 +1,9 @@
+#include <assert.h>
 #include <cjson/cJSON.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 char* read_json_file(const char* filename) {
   FILE* file = fopen(filename, "r");
   if (file == NULL) {
@@ -28,7 +31,17 @@ char* read_json_file(const char* filename) {
   fclose(file);
   return buffer;
 }
-int total_sun(cJSON* json_i) {
+bool contians_red(cJSON* json_i) {
+  assert(cJSON_IsObject(json_i));
+  cJSON* child = NULL;
+  cJSON_ArrayForEach(child, json_i) {
+    if (cJSON_IsString(child) && strcmp(child->valuestring, "red") == 0) {
+      return true;
+    }
+  }
+  return false;
+}
+int total_sum(cJSON* json_i) {
   int total = 0;
   if (cJSON_IsNumber(json_i)) {
     return json_i->valueint;
@@ -36,12 +49,12 @@ int total_sun(cJSON* json_i) {
     return 0;
   } else if (cJSON_IsArray(json_i)) {
     cJSON* child = NULL;
-    cJSON_ArrayForEach(child, json_i) { total += total_sun(child); }
-    free(child);
+    cJSON_ArrayForEach(child, json_i) { total += total_sum(child); }
   } else if (cJSON_IsObject(json_i)) {
     cJSON* child = NULL;
-    cJSON_ArrayForEach(child, json_i) { total += total_sun(child); }
-    free(child);
+    if (!contians_red(json_i)) {
+      cJSON_ArrayForEach(child, json_i) { total += total_sum(child); }
+    }
   } else {
     exit(1);
   }
@@ -63,7 +76,7 @@ int main() {
     free(json_data);  // Don't forget to free the raw string
     return 1;
   }
-  int total = total_sun(json);
+  int total = total_sum(json);
   printf("Total sum: %d\n", total);
 
   cJSON_Delete(json);
