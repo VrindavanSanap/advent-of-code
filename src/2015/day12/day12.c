@@ -1,5 +1,5 @@
 #include <assert.h>
-#include <cjson/cJSON.h>
+#include <cJSON.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
