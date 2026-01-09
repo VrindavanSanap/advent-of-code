@@ -1,11 +1,6 @@
 add_executable(day12 ./day12.c)
 
-find_package(cJSON REQUIRED)
-
-# 2. Add your executable
-
-# 3. Link the library
-# Note: The target name is usually 'cjson' (lowercase) or 'cJSON::cJSON'
+# cJSON is provided by FetchContent at the root level
 if(TARGET cjson)
     target_link_libraries(day12 PRIVATE cjson)
 elseif(TARGET cJSON::cJSON)
