@@ -2,15 +2,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define HEIGHT 50
+#define HEIGHT 6
 #define WIDTH 50 
 void print_screen(bool screen[WIDTH][HEIGHT]) {
   for (int h = 0; h < HEIGHT; h++) {
     for (int w = 0; w < WIDTH; w++) {
       if (screen[w][h]) {
-        printf("#");
+        printf("*");
       } else {
-        printf(".");
+        printf(" ");
       }
     }
     printf("\n");
