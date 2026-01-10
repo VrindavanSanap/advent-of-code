@@ -7,4 +7,4 @@ elseif(TARGET cJSON::cJSON)
     target_link_libraries(day12 PRIVATE cJSON::cJSON)
 endif()
 
-file(COPY "./day12.json" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}")
+configure_file("./day12.json" "${CMAKE_CURRENT_BINARY_DIR}/day12.json" COPYONLY)
