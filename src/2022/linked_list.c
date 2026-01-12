@@ -1,22 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct node{
+struct node {
   int data;
   struct node *next;
 };
 
-void print_linked_list(struct node *head){
-  for (struct node *cur = head; cur != NULL; cur = cur-> next){
+void print_linked_list(struct node *head) {
+  for (struct node *cur = head; cur != NULL; cur = cur->next) {
     printf("%d -> ", cur->data);
   }
   printf("NULL");
 }
 
-int main(){
-
+int main() {
   struct node *head;
-  
+
   head = malloc(sizeof(struct node));
   head->data = 100;
   head->next = malloc(sizeof(struct node));

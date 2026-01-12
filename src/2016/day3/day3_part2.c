@@ -15,13 +15,12 @@ int valid_triangle(int side_a, int side_b, int side_c) {
   return true;
 }
 int main() {
-
   FILE *file = fopen("day3.txt", "r");
 
   // Check if the file opened successfully
   if (file == NULL) {
     printf("Error: could not open file.\n");
-    return 1; // Exit if unable to open the file
+    return 1;  // Exit if unable to open the file
   }
   char line[255];
   int side_a, side_b, side_c;
@@ -35,19 +34,16 @@ int main() {
       if (!res) {
         break;
       }
- 
+
       int result = sscanf(line, "%d %d %d", &side_a, &side_b, &side_c);
 
       sides[j][0] = side_a;
       sides[j][1] = side_b;
       sides[j][2] = side_c;
-
-
-   }
+    }
     if (!res) {
       break;
     }
-
 
     for (int j = 0; j < 3; j++) {
       side_a = sides[0][j];
@@ -59,8 +55,6 @@ int main() {
         printf("VALID %d \n", ++n_valid);
       }
     }
-
-
   }
   return 0;
 }

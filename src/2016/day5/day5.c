@@ -25,9 +25,8 @@ int main() {
   int password_char_count = 0;
   char password[9];
   for (int i = 1 * 10e5; i < 4 * 10e7; i++) {
-    if(password_char_count == 8){
+    if (password_char_count == 8) {
       break;
-
     }
     sprintf(int_str, "%d", i);
     strcat(full_test_door_id, test_door_id);
@@ -35,7 +34,7 @@ int main() {
     compute_md5(full_test_door_id, md5_result);
     char *md5_res_str = byte_to_str(md5_result);
 
-    if(!strncmp(md5_res_str, five_zeros, 5)){
+    if (!strncmp(md5_res_str, five_zeros, 5)) {
       printf("Success: %s %c \n", full_test_door_id, md5_res_str[5]);
       password[password_char_count++] = md5_res_str[5];
     }

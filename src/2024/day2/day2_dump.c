@@ -35,11 +35,9 @@ bool check_gap(int arr[], int size) {
   for (int i = 1; i < size; i++) {
     gap = abs(arr[i - 1] - arr[i]);
     if (gap < 1) {
-
       return false;
     }
     if (gap > 3) {
-
       return false;
     }
   }
@@ -54,13 +52,11 @@ bool safe_unsafe(int arr[], int size) {
       break;
     }
   }
- 
- if (!strictly_inc_dec(arr, size)) {
 
+  if (!strictly_inc_dec(arr, size)) {
     return false;
   }
   if (!check_gap(arr, size)) {
-
     return false;
   }
 
@@ -86,7 +82,6 @@ int main() {
       printf("safe \n");
       total_safe += 1;
     } else {
-
       printf("unsafe \n");
     }
   }

@@ -6,7 +6,6 @@
 
 #define MAX_LINE_LENGTH 1024
 int main() {
-
   FILE* file = fopen("day2.txt", "r");
   if (file == NULL) {
     perror("Error opening file");
@@ -34,10 +33,9 @@ int main() {
       }
       numbers = strtok(NULL, "\t");
     }
-    printf("max = %d min =  %d ", max ,min);
+    printf("max = %d min =  %d ", max, min);
     sum += (max - min);
     printf("sum = %d \n", sum);
-
   }
 
   fclose(file);

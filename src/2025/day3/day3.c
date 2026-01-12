@@ -30,8 +30,8 @@ int get_max_joltage(char* bank) {
     max_digit_index = second_max_digit_index;
     second_max_digit_index = temp;
   }
-  char max_joltage_str[3] = {bank[max_digit_index], bank[second_max_digit_index],
-                         '\0'};
+  char max_joltage_str[3] = {bank[max_digit_index],
+                             bank[second_max_digit_index], '\0'};
 
   max_joltage = atoi(max_joltage_str);
   return max_joltage;
@@ -54,7 +54,6 @@ int main() {
     printf("%s \n", line);
     printf("max_joltage-> %d \n", get_max_joltage(line));
     sum_of_joltages += get_max_joltage(line);
-
   }
 
   free(line);

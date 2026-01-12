@@ -45,11 +45,9 @@ bool check_gap(int arr[], int size) {
   for (int i = 1; i < size; i++) {
     gap = abs(arr[i - 1] - arr[i]);
     if (gap < 1) {
-
       return false;
     }
     if (gap > 3) {
-
       return false;
     }
   }
@@ -58,39 +56,33 @@ bool check_gap(int arr[], int size) {
 
 bool safe_unsafe_strict(int level[], int size) {
   if (!strictly_inc_dec(level, size)) {
-
     return false;
   }
   if (!check_gap(level, size)) {
-
     return false;
   }
 
   return true;
 }
 
-void remove_elm_at_index(int arr[], int size, int index){
-  for (int i = index+1; i< size;i++){
-    arr[i-1] = arr[i];
+void remove_elm_at_index(int arr[], int size, int index) {
+  for (int i = index + 1; i < size; i++) {
+    arr[i - 1] = arr[i];
   }
-
 }
 
-bool safe_unsafe_damp(int level[], int size){
-  
-
-  if (safe_unsafe_strict(level, size)){
+bool safe_unsafe_damp(int level[], int size) {
+  if (safe_unsafe_strict(level, size)) {
     printf("Safe without returning any level");
     return true;
   }
 
-
-  int *temp_level =  (int *)malloc(size * sizeof(int));
+  int *temp_level = (int *)malloc(size * sizeof(int));
   int temp_size = size - 1;
-  for (int i =0 ; i< size;i++){
+  for (int i = 0; i < size; i++) {
     memcpy(temp_level, level, size * sizeof(int));
     remove_elm_at_index(temp_level, size, i);
-    if(safe_unsafe_strict(temp_level, temp_size)){
+    if (safe_unsafe_strict(temp_level, temp_size)) {
       printf("Safe by removing level at index %d, %d", i, level[i]);
       return true;
     }
@@ -99,7 +91,6 @@ bool safe_unsafe_damp(int level[], int size){
   printf("Unsafe regardless of which level is removed");
   return false;
 }
-
 
 int main() {
   char *file_name = "day2.txt";
@@ -130,8 +121,6 @@ int main() {
     print_arr(levels, size);
 
     bool are_levels_safe = safe_unsafe_damp(levels, size);
-    
-
 
     printf("\n");
 
@@ -143,7 +132,8 @@ int main() {
     }
   }
 
-  printf("Thanks to the Problem Dampener, %d reports are actually safe! \n", total_safe);
+  printf("Thanks to the Problem Dampener, %d reports are actually safe! \n",
+         total_safe);
   fflush(stdout);
   return 0;
 }

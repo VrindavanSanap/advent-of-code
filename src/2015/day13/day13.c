@@ -24,13 +24,13 @@ int get_happiness(dynamic_array* persons, char* person_i, char* person_j) {
 }
 
 int calculate_total_happiness(dynamic_array* persons, char** arrangement,
-							  int arrangement_size) {
+                              int arrangement_size) {
   int total_happiness = 0;
   for (int i = 0; i < arrangement_size; i++) {
-	char* person_i = arrangement[i];
-	char* person_j = arrangement[(i + 1) % arrangement_size];
-	total_happiness += get_happiness(persons, person_i, person_j);
-	total_happiness += get_happiness(persons, person_j, person_i);
+    char* person_i = arrangement[i];
+    char* person_j = arrangement[(i + 1) % arrangement_size];
+    total_happiness += get_happiness(persons, person_i, person_j);
+    total_happiness += get_happiness(persons, person_j, person_i);
   }
   return total_happiness;
 }
@@ -77,8 +77,8 @@ int main() {
   da_get_at(persons, 0, &p_i);
   printf("First entry: %s %s %d\n", p_i.person_i, p_i.person_j,
          p_i.happiness_gain);
-		 int total_happiness = calculate_total_happiness(persons, person_names, 4);
-		 printf("Total happiness: %d\n", total_happiness);
+  int total_happiness = calculate_total_happiness(persons, person_names, 4);
+  printf("Total happiness: %d\n", total_happiness);
   da_free(persons);
   return 0;
 }

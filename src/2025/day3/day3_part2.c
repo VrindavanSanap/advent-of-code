@@ -44,12 +44,13 @@ int main() {
     perror("Error opening file");
     return EXIT_FAILURE;
   }
-  unsigned  long sum_of_joltages = 0;
+  unsigned long sum_of_joltages = 0;
 
   while ((read = getline(&line, &len, fp)) != -1) {
     line[strcspn(line, "\n")] = '\0';
     printf("%s \n", line);
-    printf("max_joltage-> %lld \n", get_max_joltage(line)); // Changed format specifier to %lld
+    printf("max_joltage-> %lld \n",
+           get_max_joltage(line));  // Changed format specifier to %lld
     sum_of_joltages += get_max_joltage(line);
   }
 

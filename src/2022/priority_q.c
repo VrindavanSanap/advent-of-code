@@ -1,22 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
-typedef struct Node{
+typedef struct Node {
   int data;
   struct Node *next;
 } node;
 
-void print_linked_list(node *head){
-  for (node *cur = head; cur != NULL; cur = cur-> next){
+void print_linked_list(node *head) {
+  for (node *cur = head; cur != NULL; cur = cur->next) {
     printf("%d -> ", cur->data);
   }
   printf("NULL \n");
 }
 
-void add_node(node *head, int data){
+void add_node(node *head, int data) {
   print_linked_list(head);
-  node *cur =  head;
-  while(cur != NULL){
-    if (cur->next == NULL){
+  node *cur = head;
+  while (cur != NULL) {
+    if (cur->next == NULL) {
       printf("adding node \n");
       cur->next = malloc(sizeof(node));
       cur->next->data = data;
@@ -27,7 +27,7 @@ void add_node(node *head, int data){
   print_linked_list(head);
 }
 
-int main(){
+int main() {
   node *head;
   head = malloc(sizeof(node));
   int data = 100;

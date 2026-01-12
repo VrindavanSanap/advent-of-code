@@ -26,8 +26,8 @@ int main() {
       }
     }
   }
-unsigned  int sum = 0;
-unsigned  int sum_inv = 0;
+  unsigned int sum = 0;
+  unsigned int sum_inv = 0;
   unsigned int mask = (1U << NUM_BITS) - 1;
   for (int i = 0; i < NUM_BITS; i++) {
     bool is_one = bits_frequency[i] > 0;

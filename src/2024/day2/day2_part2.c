@@ -5,7 +5,6 @@
 
 #define N_LINES 1000
 int damp_increasing(int arr[], int size) {
-
   // --
   // returns index of element which when removed will make the array
   // strictly increasing
@@ -53,11 +52,9 @@ bool check_gap(int arr[], int size) {
   for (int i = 1; i < size; i++) {
     gap = abs(arr[i - 1] - arr[i]);
     if (gap < 1) {
-
       return false;
     }
     if (gap > 3) {
-
       return false;
     }
   }
@@ -65,13 +62,10 @@ bool check_gap(int arr[], int size) {
 }
 
 bool safe_unsafe(int level[], int size) {
-
   if (!strictly_inc_dec(level, size)) {
-
     return false;
   }
   if (!check_gap(level, size)) {
-
     return false;
   }
 
@@ -107,7 +101,6 @@ int main() {
       printf("safe \n");
       total_safe += 1;
     } else {
-
       printf("unsafe \n");
     }
   }

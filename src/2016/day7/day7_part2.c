@@ -34,21 +34,20 @@ dynamic_array* get_babs(char* line) {
   // returns babs inside the hypernet sequence
   bool inside = false;
   for (int i = 0; i < len - 2; i++) {
-
     if (inside == false) {
-		if(line[i] == '['){
-			inside = true;
-		}
-    }else{
-		if(line[i+ 2] == ']'){
-			inside = false;
-		}else{
-			char aba[3] = {line[i], line[i + 1], line[i + 2]};
-			if(is_aba(aba)){
-				da_insert_last(babs, &aba);
-			}
-		}
-	}
+      if (line[i] == '[') {
+        inside = true;
+      }
+    } else {
+      if (line[i + 2] == ']') {
+        inside = false;
+      } else {
+        char aba[3] = {line[i], line[i + 1], line[i + 2]};
+        if (is_aba(aba)) {
+          da_insert_last(babs, &aba);
+        }
+      }
+    }
   }
 
   return babs;
@@ -64,11 +63,11 @@ int corresponding_abas_babs(dynamic_array* abas, dynamic_array* babs) {
     for (int j = 0; j < len_babs; j++) {
       da_get_at(babs, j, &bab);
 
-	  if (aba[0] == bab[1] && aba[1] == bab[0]){
-		return true;
-	  }else{
-		// printf("%s %s\n", aba, bab);
-	  }
+      if (aba[0] == bab[1] && aba[1] == bab[0]) {
+        return true;
+      } else {
+        // printf("%s %s\n", aba, bab);
+      }
     }
   }
   return false;

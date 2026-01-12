@@ -1,9 +1,10 @@
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdbool.h>
 
-char* read_file_to_buffer(const char* filename, size_t* out_size, int* out_height, int* out_width) {
+char* read_file_to_buffer(const char* filename, size_t* out_size,
+                          int* out_height, int* out_width) {
   FILE* file = fopen(filename, "r");
   if (file == NULL) {
     perror("Error opening file");
@@ -68,10 +69,10 @@ char* read_file_to_buffer(const char* filename, size_t* out_size, int* out_heigh
   return buffer;
 }
 
-int valid_coords(int row, int col, int height, int width){
+int valid_coords(int row, int col, int height, int width) {
   return row >= 0 && row < height && col >= 0 && col < width;
 }
-int count_neighbours(char* buffer, int row, int col, int height, int width){
+int count_neighbours(char* buffer, int row, int col, int height, int width) {
   // returns number of neighbours for a given cell
   int num_neighbours = 0;
   for (int i = -1; i <= 1; i++) {
@@ -115,8 +116,9 @@ void remove_rolls(char* buffer, char* rolls_to_remove, int height, int width) {
 int main() {
   size_t size;
   int height, width;
-  char* rolls_of_paper= read_file_to_buffer("day4.txt", &size, &height, &width);
-    char* rolls_to_remove = calloc(height * width, sizeof(bool));
+  char* rolls_of_paper =
+      read_file_to_buffer("day4.txt", &size, &height, &width);
+  char* rolls_to_remove = calloc(height * width, sizeof(bool));
   if (rolls_of_paper == NULL) {
     return EXIT_FAILURE;
   }
@@ -125,26 +127,25 @@ int main() {
   printf("Width: %d, Height: %d\n", width, height);
   printf("File content without newlines (size: %zu)\n", size);
   int total_removed = 0;
-  while(num_accessible > 0){
+  while (num_accessible > 0) {
     print_buffer(rolls_of_paper, height, width);
 
     num_accessible = 0;
     for (int row_i = 0; row_i < height; row_i++) {
       for (int col_j = 0; col_j < width; col_j++) {
-      if ((roll_accessible(rolls_of_paper, row_i, col_j, height, width)) && (rolls_of_paper[row_i * width + col_j] == '@')) {
-        num_accessible++;
-        rolls_to_remove[row_i*width + col_j] = true; 
-        total_removed++;
-      }else{
-
+        if ((roll_accessible(rolls_of_paper, row_i, col_j, height, width)) &&
+            (rolls_of_paper[row_i * width + col_j] == '@')) {
+          num_accessible++;
+          rolls_to_remove[row_i * width + col_j] = true;
+          total_removed++;
+        } else {
+        }
       }
     }
+
+    printf("Remove %d rolls: \n", num_accessible);
+    remove_rolls(rolls_of_paper, rolls_to_remove, height, width);
   }
-
-
-  printf("Remove %d rolls: \n", num_accessible);
-  remove_rolls(rolls_of_paper, rolls_to_remove, height, width);
-}
   printf("Total removed: %d\n", total_removed);
   free(rolls_to_remove);
   free(rolls_of_paper);

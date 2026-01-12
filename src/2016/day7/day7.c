@@ -28,17 +28,16 @@ bool validate_line(char* line) {
     // printf("%.*s", 4, line + i);
     if (hypernet_seq) {
       if (contains_abba(&line[i])) {
-		return false;
+        return false;
       }
 
-    //   printf(" hyper \n");
+      //   printf(" hyper \n");
     } else {
       if (contains_abba(&line[i])) {
-		is_valid = true;
+        is_valid = true;
       }
 
-
-    //   printf(" nonhyper \n");
+      //   printf(" nonhyper \n");
     }
   }
   return is_valid;
@@ -55,7 +54,7 @@ int main() {
 
   int braket_open = 0;
   int braket_close = 0;
-int total_valid = 0;
+  int total_valid = 0;
   while (getline(&line, &size, file) != -1) {
     // printf("%s\n", line);
     total_valid += validate_line(line);

@@ -40,7 +40,8 @@ int main() {
            (int)(strlen(line_buffer)));
 
     if (reached_basement(line_buffer, &char_index, &current_floor)) {
-      printf("Floor reached is %d at char pos %d\n", current_floor, char_index + 1);
+      printf("Floor reached is %d at char pos %d\n", current_floor,
+             char_index + 1);
       break;
     }
     line_number++;

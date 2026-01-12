@@ -19,13 +19,12 @@ int main() {
   char c;
   regex_t preg;
   assert(regcomp(&preg, pattern, REG_EXTENDED) == 0);
-  const size_t n_match = 5; // 1 for full match + 2 for groups
+  const size_t n_match = 5;  // 1 for full match + 2 for groups
   regmatch_t p_match[n_match];
   int pos1;
   int pos2;
 
   while (fgets(line, sizeof(line), file)) {
-
     count = 0;
     int res = regexec(&preg, line, n_match, p_match, 0);
     int match_len;
@@ -52,15 +51,14 @@ int main() {
     printf("char: %c\n", c);
     len += match_len + 1;
 
-    printf("pos1: %c \n", line[len+pos1]);
-    printf("pos2: %c \n", line[len+pos2]);
+    printf("pos1: %c \n", line[len + pos1]);
+    printf("pos2: %c \n", line[len + pos2]);
     int is_valid = false;
 
-    if ((line[len+pos1] == c)^(line[len+pos2]==c)) {
+    if ((line[len + pos1] == c) ^ (line[len + pos2] == c)) {
       n_valid++;
       printf("Valid %d \n", n_valid);
     } else {
-
       printf("Invalid %d \n", n_valid);
     }
 

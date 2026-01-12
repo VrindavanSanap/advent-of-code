@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
+#include <string.h>
 int main() {
   FILE* file_pointer;
   char filename[] = "day1.txt";
