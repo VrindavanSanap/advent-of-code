@@ -1,0 +1,29 @@
+name: Auto-format with clang-format
+
+on:
+  push:
+    branches: [main]  # or your main working branch
+  workflow_dispatch:
+
+jobs:
+  auto-format:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Format source files
+        run: |
+          find . -type f \( -name '*.c' -o -name '*.cpp' -o -name '*.h' -o -name '*.hpp' \) \
+            -exec clang-format -i -style=file {} +
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add .
+          git diff-index --quiet HEAD || git commit -m "Auto-format code with clang-format"
+          git push
