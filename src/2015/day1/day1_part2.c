@@ -24,7 +24,7 @@ bool reached_basement(const char buffer[], int* const char_index,
 }
 
 int main() {
-  FILE* file = fopen("day1.txt", "r");
+  FILE* file = fopen("./day1.txt", "r");
   if (file == NULL) {
     perror("Error opening file");
     return 1;
@@ -32,7 +32,6 @@ int main() {
 
   char line_buffer[MAX_LINE_LENGTH];
   int line_number = 0;
-
   int char_index = 0;
   int current_floor = 0;
   while (fgets(line_buffer, sizeof(line_buffer), file) != NULL) {
