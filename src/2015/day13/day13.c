@@ -9,16 +9,16 @@ struct person {
   char person_j[20];
   int happiness_gain;
 };
-void swap(char* person_names[], int i, int j){
-	char* temp = person_names[i];
-	person_names[i] = person_names[j];
-	person_names[j] = temp;
+void swap(char* person_names[], int i, int j) {
+  char* temp = person_names[i];
+  person_names[i] = person_names[j];
+  person_names[j] = temp;
 }
-void print_person_names(char* person_names[], int num_persons){
-	for (int i = 0; i< num_persons; i++){
-		printf("%s ", person_names[i]);
-	}
-	printf("\n");
+void print_person_names(char* person_names[], int num_persons) {
+  for (int i = 0; i < num_persons; i++) {
+    printf("%s ", person_names[i]);
+  }
+  printf("\n");
 }
 int get_happiness(dynamic_array* persons, char* person_i, char* person_j) {
   // Placeholder function to get happiness value between two persons
@@ -33,19 +33,17 @@ int get_happiness(dynamic_array* persons, char* person_i, char* person_j) {
   }
   return 0;
 }
-void permutations(char* person_names[], int start, int end ) {
-
-	if (start == end){
-		print_person_names(person_names, end + 1);
-		return;
-	}
-	for (int i = start; i <= end; i++){
-		// give every one the chance to be at the start 
-		swap(person_names, start, i);
-		permutations(person_names, start + 1, end);
-		swap(person_names, start, i);
-	}
-	
+void permutations(char* person_names[], int start, int end) {
+  if (start == end) {
+    print_person_names(person_names, end + 1);
+    return;
+  }
+  for (int i = start; i <= end; i++) {
+    // give every one the chance to be at the start
+    swap(person_names, start, i);
+    permutations(person_names, start + 1, end);
+    swap(person_names, start, i);
+  }
 }
 
 int calculate_total_happiness(dynamic_array* persons, char** arrangement,

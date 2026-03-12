@@ -6,7 +6,7 @@
 
 int get_floor_delta(char buffer[], size_t num_floors) {
   int floor_delta = 0;
-  for (int i = 0;i < num_floors; i++) {
+  for (int i = 0; i < num_floors; i++) {
     if (buffer[i] == '(') {
       floor_delta++;
     } else if (buffer[i] == ')') {
