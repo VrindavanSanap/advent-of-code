@@ -37,3 +37,10 @@ target_link_libraries(day9 PRIVATE dynamic_array)
 
 configure_file("./day9/day9_smol.txt" "${CMAKE_CURRENT_BINARY_DIR}/day9_smol.txt" COPYONLY)
 configure_file("./day9/day9.txt" "${CMAKE_CURRENT_BINARY_DIR}/day9.txt" COPYONLY)
+
+add_executable(day11 ./day11/day11.c)
+
+target_link_libraries(day11 PRIVATE dynamic_array)
+
+configure_file("./day11/day11_smol.txt" "${CMAKE_CURRENT_BINARY_DIR}/day11_smol.txt" COPYONLY)
+configure_file("./day11/day11.txt" "${CMAKE_CURRENT_BINARY_DIR}/day11.txt" COPYONLY)
