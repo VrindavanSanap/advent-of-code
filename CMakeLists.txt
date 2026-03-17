@@ -1,7 +1,9 @@
 cmake_minimum_required(VERSION 3.24)
-project(MyCProject)
+project(AdventOfCode)
 
 include(FetchContent)
+
+find_package(OpenSSL REQUIRED)
 
 FetchContent_Declare(
   cjson
