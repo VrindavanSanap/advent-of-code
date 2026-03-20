@@ -3,7 +3,7 @@ using namespace std;
 
 int main(){
   /*
-  FILE* file = fopen("day9_smol.txt", "r");
+  FILE* file = fopen("2015_day9_smol.txt", "r");
   char line[255];
 
 

@@ -44,7 +44,7 @@ char *get_checksum(char *encrypted_name, int room_len) {
 }
 
 int main() {
-  FILE *file = fopen("day4.txt", "r");
+  FILE *file = fopen("2016_day4.txt", "r");
 
   // Check if the file opened successfully
   if (file == NULL) {

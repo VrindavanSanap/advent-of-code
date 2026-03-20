@@ -2,7 +2,7 @@
 
 int main() {
   // Define a pointer for the file and open it
-  FILE *file = fopen("day2.txt", "r");
+  FILE *file = fopen("2016_day2.txt", "r");
 
   // Check if the file opened successfully
   if (file == NULL) {

@@ -9,7 +9,7 @@ int process_line(char buffer[]) {
   return 0;
 }
 int main() {
-  FILE* file = fopen("day3.txt", "r");
+  FILE* file = fopen("2015_day3.txt", "r");
   if (file == NULL) {
     perror("Error opening file");
     return 1;

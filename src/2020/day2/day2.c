@@ -6,7 +6,7 @@
 #include <string.h>
 
 int main() {
-  FILE *file = fopen("day2_smol.txt", "r");
+  FILE *file = fopen("2020_day2_smol.txt", "r");
   if (file == NULL) {
     perror("Unable to open file");
     return 1;

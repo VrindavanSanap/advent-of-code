@@ -6,7 +6,7 @@ int main() {
   FILE *file;
   char line[50];
 
-  file = fopen("day2.txt", "r");
+  file = fopen("2021_day2.txt", "r");
 
   if (file == NULL) {
     printf("Error opening the file.\n");

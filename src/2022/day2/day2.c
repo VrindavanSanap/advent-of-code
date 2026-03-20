@@ -9,7 +9,7 @@ int main() {
   FILE *file;
   char calorie_string[100];
 
-  file = fopen("day1.txt", "r");
+  file = fopen("2022_day1.txt", "r");
 
   if (file == NULL) {
     perror("Error opening file");

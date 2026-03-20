@@ -54,7 +54,7 @@ bool is_nice_string(char line[]) {
 }
 
 int main() {
-  FILE *file = fopen("day8.txt", "r");
+  FILE *file = fopen("2015_day8.txt", "r");
   if (file == NULL) {
     perror("Error opening file");
     return 1;

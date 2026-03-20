@@ -19,7 +19,7 @@ void shift_cipher(char* str, int len, int shift_n) {
   }
 }
 int main() {
-  FILE* file = fopen("day4.txt", "r");
+  FILE* file = fopen("2016_day4.txt", "r");
 
   // Check if the file opened successfully
   if (file == NULL) {

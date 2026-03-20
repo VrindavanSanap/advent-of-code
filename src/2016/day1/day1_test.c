@@ -5,7 +5,7 @@
 
 int main() {
   FILE *file;
-  file = fopen("day1.txt", "r");
+  file = fopen("2016_day1.txt", "r");
   int m;
   int counter = 0;
   while ((m = fgetc(file)) != EOF) {

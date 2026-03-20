@@ -84,7 +84,7 @@ int main() {
   FILE *file;
   char line[10];
 
-  file = fopen("day2.txt", "r");
+  file = fopen("2022_day2.txt", "r");
   if (file == NULL) {
     printf("Could not open the file.\n");
     return 1;

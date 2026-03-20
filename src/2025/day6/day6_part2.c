@@ -22,7 +22,7 @@ int main() {
   FILE* fp;
   char buffer[1024];
 
-  fp = fopen("day6.txt", "r");
+  fp = fopen("2025_day6.txt", "r");
   if (!fp) {
     perror("Error opening file");
     return 1;

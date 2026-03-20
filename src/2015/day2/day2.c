@@ -24,7 +24,7 @@ void parse_line(char buffer[], int* height, int* const width,
 }
 
 int main() {
-  FILE* file = fopen("day2.txt", "r");
+  FILE* file = fopen("2015_day2.txt", "r");
   if (file == NULL) {
     perror("Error opening file");
     return 1;

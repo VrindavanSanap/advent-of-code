@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.24)
 project(AdventOfCode)
 
+# Output all executables to the bin directory in the build folder
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
 include(FetchContent)
 
 find_package(OpenSSL REQUIRED)

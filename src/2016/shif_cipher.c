@@ -20,7 +20,7 @@ void shift_cipher(char* str, int len, int shift_n) {
 }
 
 int main() {
-  FILE* file = fopen("day4.txt", "r");
+  FILE* file = fopen("2016_day4.txt", "r");
   if (file == NULL) {
     printf("Error: could not open file.\n");
     return 1;  // Exit if unable to open the file

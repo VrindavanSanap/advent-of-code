@@ -15,7 +15,7 @@ int valid_triangle(int side_a, int side_b, int side_c) {
   return true;
 }
 int main() {
-  FILE *file = fopen("day3.txt", "r");
+  FILE *file = fopen("2016_day3.txt", "r");
 
   // Check if the file opened successfully
   if (file == NULL) {

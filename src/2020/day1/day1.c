@@ -12,9 +12,9 @@ struct Node* create_node(int data) {
   return new_node;
 }
 int main() {
-  FILE* file1 = fopen("day1.txt", "r");
-  FILE* file2 = fopen("day1.txt", "r");
-  FILE* file3 = fopen("day1.txt", "r");
+  FILE* file1 = fopen("2020_day1.txt", "r");
+  FILE* file2 = fopen("2020_day1.txt", "r");
+  FILE* file3 = fopen("2020_day1.txt", "r");
   if (file1 == NULL) {
     perror("Unable to open file");
     return 1;

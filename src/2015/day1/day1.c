@@ -17,7 +17,7 @@ int get_floor_delta(char buffer[], size_t num_floors) {
 }
 
 int main() {
-  FILE *file = fopen("./day1.txt", "r");
+  FILE *file = fopen("2015_day1.txt", "r");
   if (file == NULL) {
     perror("Error opening file");
     return 1;

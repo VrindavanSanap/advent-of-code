@@ -37,7 +37,7 @@ int main() {
   char first_comp[50];
   char second_comp[50];
 
-  file = fopen("day3.txt", "r");
+  file = fopen("2022_day3.txt", "r");
 
   if (file == NULL) {
     perror("Error opening file");

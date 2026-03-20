@@ -7,7 +7,7 @@
 #define MAX_LINE_LENGTH 1024
 #define N_NUMS 16
 int main() {
-  FILE *file = fopen("day2.txt", "r");
+  FILE *file = fopen("2017_day2.txt", "r");
   if (file == NULL) {
     perror("Error opening file");
     return 1;

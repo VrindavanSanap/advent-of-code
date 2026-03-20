@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 int main() {
-  FILE *file = fopen("day5.txt", "r");
+  FILE *file = fopen("2015_day5.txt", "r");
   if (file == NULL) {
     perror("Error opening file");
     return 1;
