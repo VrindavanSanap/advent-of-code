@@ -196,6 +196,13 @@ size_t da_get_size(const dynamic_array *da) {
 }
 size_t get_element_size(const dynamic_array *da) { return da->element_size; }
 
+void da_sort(dynamic_array *da, int (*compare_fn)(const void *, const void *)) {
+  if (!da || !compare_fn) return;
+
+  // We can access da->data here because we are inside dynamic_array.c
+  qsort(da->data, da->num_elements, da->element_size, compare_fn);
+}
+
 void da_free(dynamic_array *da) {
   if (!da) {
     return;
