@@ -1,9 +1,10 @@
+#include "set.h"
+
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 
 #include "dynamic_array.h"
-#include "set.h"
 struct set {
   dynamic_array *elements;
   int (*compare)(const void *a, const void *b);
