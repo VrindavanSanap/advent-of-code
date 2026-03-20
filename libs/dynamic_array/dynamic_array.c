@@ -6,7 +6,6 @@
 //
 #include "dynamic_array.h"
 
-#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -35,7 +34,7 @@ dynamic_array *da_build(size_t element_size) {
     return NULL;
   }
 
-  dynamic_array *da = malloc(sizeof(dynamic_array));
+  dynamic_array *da = malloc(sizeof(*da));
   if (!da) {
     fprintf(stderr, "Error : Dynamic array allocation failed\n");
     return NULL;
@@ -52,7 +51,7 @@ dynamic_array *da_build(size_t element_size) {
 // Internal function.
 // return 0 if success
 // return -1 if fail
-int _da_resize(dynamic_array *da) {
+static int _da_resize(dynamic_array *da) {
   // TODO:
   // Implement two separate functions:
   // grow and shrink,
@@ -178,23 +177,7 @@ int da_insert_first(dynamic_array *da, const void *element) {
 void da_delete_first(dynamic_array *da) { da_delete_at(da, 0); }
 
 int da_insert_last(dynamic_array *da, const void *element) {
-  // Takes O(1) amortized time.
-  if (!da || !element) {
-    fprintf(stderr, "Invalid parameters passed\n");
-    return -1;
-  }
-  if (da->num_elements == da->capacity) {
-    if (_da_resize(da) == -1) {
-      return -1;
-    }
-  }
-
-  char *base_ptr = (char *)da->data;
-  char *destination_ptr = base_ptr + (da->num_elements) * (da->element_size);
-  memcpy(destination_ptr, element, da->element_size);
-
-  da->num_elements++;
-  return 0;
+  return da_insert_at(da, element, da->num_elements);
 }
 void da_delete_last(dynamic_array *da) {
   // Takes O(1) amortized time.
@@ -202,26 +185,21 @@ void da_delete_last(dynamic_array *da) {
     return;
   }
   da->num_elements--;
-};
+}
 
-size_t da_get_size(dynamic_array *da) {
+size_t da_get_size(const dynamic_array *da) {
   if (!da) {
     fprintf(stderr, "Invalid parameters passed\n");
     return 0;
   }
   return da->num_elements;
 }
+size_t get_element_size(const dynamic_array *da) { return da->element_size; }
+
 void da_free(dynamic_array *da) {
   if (!da) {
     return;
   }
   free(da->data);
   free(da);
-}
-
-void da_sort(dynamic_array *da, int (*compare_fn)(const void *, const void *)) {
-  if (!da || !compare_fn) return;
-
-  // We can access da->data here because we are inside dynamic_array.c
-  qsort(da->data, da->num_elements, da->element_size, compare_fn);
 }
