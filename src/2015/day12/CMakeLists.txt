@@ -8,4 +8,4 @@ elseif(TARGET cjson)
     target_link_libraries(2015_day12 PRIVATE cjson)
 endif()
 
-configure_file("./day12.json" "${CMAKE_BINARY_DIR}/bin/2015_day12.json" COPYONLY)
+configure_file("./2015_day12.json" "${CMAKE_BINARY_DIR}/bin/2015_day12.json" COPYONLY)
