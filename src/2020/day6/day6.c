@@ -4,7 +4,7 @@
 #include <string.h>
 
 int main() {
-  FILE *file = fopen("2020_day6.txt", "r");
+  FILE *file = fopen("2020_day6_smol.txt", "r");
   if (file == NULL) {
     perror("Unable to open file");
     return 1;
@@ -15,11 +15,9 @@ int main() {
   ssize_t read;
 
   while ((read = getline(&line, &len, file)) != -1) {
-    // remove newline char
     line[strcspn(line, "\n")] = 0;
 
-    printf("%s", line);
-    // TODO: logic here
+    printf("%s \n", line);
   }
 
   if (line) {
