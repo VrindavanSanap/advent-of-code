@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 #include "dynamic_array.h"
-#include "set_interface.h"
+#include "set.h"
 struct set {
   dynamic_array *elements;
   int (*compare)(const void *a, const void *b);

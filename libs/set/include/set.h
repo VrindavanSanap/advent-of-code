@@ -15,7 +15,8 @@
       find_prev(k)
       find_next(k)
 */
-
+#ifndef SET_H
+#define SET_H
 #include <stdint.h>
 
 #include "dynamic_array.h"
@@ -51,3 +52,4 @@ void find_prev_entry(set *s, uint64_t hash, void *out_key);
 void find_next(set *s, void *in_key, void *out_key);
 void find_next_entry(set *s, uint64_t hash, void *out_key);
 */
+#endif
