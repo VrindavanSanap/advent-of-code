@@ -10,12 +10,19 @@ int main() {
     return 1;
   }
 
-  char line[256];
-  while (fgets(line, sizeof(line), file)) {
+  char *line = NULL;
+  size_t len = 0;
+  ssize_t read;
+
+  while ((read = getline(&line, &len, file)) != -1) {
     // remove newline char
     line[strcspn(line, "\n")] = 0;
 
     // TODO: part 2 logic here
+  }
+
+  if (line) {
+    free(line);
   }
 
   fclose(file);
