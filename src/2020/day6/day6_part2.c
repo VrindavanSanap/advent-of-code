@@ -4,7 +4,7 @@
 #include <string.h>
 
 int main() {
-  FILE* file = fopen("day6.txt", "r");
+  FILE *file = fopen("day6.txt", "r");
   if (file == NULL) {
     perror("Unable to open file");
     return 1;
