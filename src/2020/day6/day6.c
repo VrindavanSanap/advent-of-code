@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 #include "set.h"
 
 int compare_chars(const void *a, const void *b) {
@@ -26,7 +27,7 @@ int main() {
     if (strcmp(line, "\n") == 0) {
       printf("--\n");
     } else {
-      //remmove the newline a tthe end
+      // remmove the newline a tthe end
       line[strcspn(line, "\n")] = 0;
       printf("%s\n", line);
     }
