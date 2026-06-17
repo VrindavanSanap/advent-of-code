@@ -1,17 +1,21 @@
-#include <openssl/md5.h>
+#include <openssl/evp.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 void compute_md5(const char *data, unsigned char *md5_result) {
-  // Compute the MD5 hash
-  MD5((unsigned char *)data, strlen(data), md5_result);
+  EVP_MD_CTX *ctx = EVP_MD_CTX_new();
+  EVP_DigestInit_ex(ctx, EVP_md5(), NULL);
+  EVP_DigestUpdate(ctx, data, strlen(data));
+  unsigned int len;
+  EVP_DigestFinal_ex(ctx, md5_result, &len);
+  EVP_MD_CTX_free(ctx);
 }
 
 char *byte_to_str(unsigned char *md5_result) {
   // Print the MD5 hash in hexadecimal format
-  static char hex_res[MD5_DIGEST_LENGTH * 2 + 1];
-  for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
+  static char hex_res[EVP_MAX_MD_SIZE * 2 + 1];
+  for (int i = 0; i < EVP_MAX_MD_SIZE; i++) {
     sprintf(&hex_res[i * 2], "%02x", md5_result[i]);
   }
   return hex_res;
@@ -21,7 +25,7 @@ int main() {
   char full_test_door_id[63];
   char int_str[31];
   const char *five_zeros = "00000";
-  unsigned char md5_result[MD5_DIGEST_LENGTH];
+  unsigned char md5_result[EVP_MAX_MD_SIZE];
   int password_char_count = 0;
   char password[9] = "________";
   password[8] = '\0';

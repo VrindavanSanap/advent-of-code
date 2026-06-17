@@ -18,3 +18,14 @@ Makefile
 *.make
 
 .cache
+
+# Compiled binaries and object files
+*.o
+*.out
+*.dSYM/
+
+# CTest runtime output
+Testing/
+
+# Nested IDE config
+src/**/.vscode/

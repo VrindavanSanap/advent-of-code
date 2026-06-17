@@ -1,3 +1,5 @@
+find_package(OpenSSL REQUIRED)
+
 # Define your executable
 add_executable(2016_day5_part2 day5_part2.c)
 

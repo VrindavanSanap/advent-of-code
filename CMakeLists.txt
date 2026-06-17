@@ -6,8 +6,6 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 include(FetchContent)
 
-find_package(OpenSSL REQUIRED)
-
 FetchContent_Declare(
   cjson
   GIT_REPOSITORY https://github.com/DaveGamble/cJSON.git
@@ -30,4 +28,3 @@ add_subdirectory(libs)
 # Add your application directories
 add_subdirectory(src)
 
-enable_testing()
