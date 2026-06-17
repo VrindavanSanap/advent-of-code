@@ -11,12 +11,10 @@ int compare_chars(const void *a, const void *b) {
   return (char_a > char_b) - (char_a < char_b);
 }
 
-// write a smart string concatonation function that does not run into 
+// write a smart string concatonation function that does not run into
 // "schemel the painter" problem
 
-
 int main() {
-
   FILE *file = fopen("2020_day6_smol.txt", "r");
   if (file == NULL) {
     perror("Unable to open file");
