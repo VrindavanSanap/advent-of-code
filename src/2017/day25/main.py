@@ -1,7 +1,8 @@
-
+from turing_machine import Turing_machine 
+from tqdm import tqdm
 
 import re
-with open("./2017_day25_smol.txt", "r", encoding="utf-8") as file:
+with open("./2017_day25.txt", "r", encoding="utf-8") as file:
 	lines = file.read().split("\n")
 	
 
@@ -23,7 +24,9 @@ def parse_segment(state_name, segment):
 
 	current_value = int(segment[0][-2])
 	write = int(segment[1][-2])
-	transitions[state_name][current_value] = (write)
+	move_dir = segment[2][27]
+	next_state = segment[3][-2]
+	transitions[state_name][current_value] = (write, move_dir, next_state)
 
 
 def parse_state(state):
@@ -39,19 +42,17 @@ def parse_state(state):
 for state in  (states):
 	parse_state(state)
 print(num_steps)
-print(transitions)
-tape = [0]
-index = 0
-begin_state = 'A'
-
-def step():
-	tape[index] = transitions[begin_state][tape[index]]
 
 
-	pass
+Q= ['A', 'B']
+T = [0, 1]
+b = None
+sigma = [0, 1]
+F = None
+my_machine = Turing_machine(Q, T, b, sigma, transitions, 'A', F)
+for i in tqdm(range(num_steps)):
+	my_machine.step()
+print(my_machine.checksum())
 
 
-for i in range(2):
 
-	print(f"current state @ step {i}: {tape}")
-	step()
