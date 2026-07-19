@@ -10,23 +10,7 @@
 using namespace std;
 using namespace TM;
 
-void print_transition_data(const transition_data &machine_logic) {
-  for (const auto &[current_state, inner_map] : machine_logic) {
-    std::cout << "State '" << current_state << "':\n";
 
-    for (const auto &[input_value, next_step] : inner_map) {
-      // Unpack the step tuple elements explicitly
-      value next_value = std::get<0>(next_step);
-      direction move_direction = std::get<1>(next_step);
-      state next_state = std::get<2>(next_step);
-
-      std::cout << "  Input: " << input_value << " -> (Write: " << next_value
-                << ", Move: '" << move_direction << "', Next State: '"
-                << next_state << "')\n";
-    }
-    std::cout << '\n';
-  }
-}
 int main() {
   string smol_file = "2017_day25_smol.txt";
   string file = "2017_day25.txt";
