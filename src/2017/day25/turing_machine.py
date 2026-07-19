@@ -23,8 +23,10 @@ class Turing_machine:
 
 		# set of final/accepting states F ⊆ Q
 		self.F = F
+
+
 		self.current_state = q0
-		self.tape = [0]
+		self.tape = [self.b]
 		self.rw_head = 0
 
 	def step(self):
@@ -36,11 +38,11 @@ class Turing_machine:
 		# Move  
 		if (move_dir == 'r'):
 			if(self.rw_head == (len(self.tape) -1)):
-				self.tape.append(0)
+				self.tape.append(self.b)
 			self.rw_head += 1
 		else:
 			if (self.rw_head ==0):
-				self.tape.insert(0, 0)
+				self.tape.insert(0, self.b)
 			else:
 				self.rw_head -= 1
 		# Change state
