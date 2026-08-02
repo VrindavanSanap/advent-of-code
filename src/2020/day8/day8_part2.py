@@ -1,4 +1,3 @@
-import time
 import copy
 
 with open("2020_day8.txt", "r") as f:
@@ -35,7 +34,6 @@ lines = [line.split() for line in lines]
 i = 0
 temp_lines = copy.deepcopy(lines)
 temp_visited = copy.deepcopy(visited)
-print(lines)
 while i<num_lines:
 	
 	lines = copy.deepcopy(temp_lines)

@@ -25,7 +25,6 @@ def get_acc(lines, visited):
 visited = [False for line in lines]
 lines = [line.split() for line in lines]
 
-print(lines[:5])
 st = time.time()
 accumulator = get_acc(lines, visited)
 print(time.time() - st)
