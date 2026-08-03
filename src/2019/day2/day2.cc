@@ -22,11 +22,9 @@ int main() {
   };
   int num_ints = data.size();
 
-  // Restore "1202 program alarm" state before running
   data[1] = 12;
   data[2] = 2;
 
-  println("{}", data);
   for (int i = 0; i < num_ints; i += 4) {
     int opcode = data[i];
     if (opcode == 99) {
