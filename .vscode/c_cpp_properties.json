@@ -1,0 +1,16 @@
+{
+    "configurations": [
+        {
+            "name": "Mac",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [],
+            "cppStandard": "c++23",
+            "compilerArgs": [
+                " "
+            ]
+        }
+    ],
+    "version": 4
+}
