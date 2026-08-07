@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-with open("day3.txt") as f:
+with open("2015_day3.txt") as f:
   data = f.read().strip()
 
 floor_n = 0
@@ -8,7 +8,6 @@ x = 0
 y = 0 
 
 for char in data:
-
   if char == "<":
       x -= 1
   elif char == ">":
@@ -21,5 +20,5 @@ for char in data:
     print(f"invalid char {char}")
   visited.add((x, y))
 
-  print(f"{char} {x, y} n_visited = {len(visited)}")
+print(f"n_visited = {len(visited)}")
 

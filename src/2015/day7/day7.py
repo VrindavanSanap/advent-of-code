@@ -71,7 +71,7 @@ wires["g"] = Wire("g", "RSHIFT", "y", 2)
 wires["h"] = Wire("h", "NOT", "x")
 wires["i"]= Wire("i", "NOT", "y")
 """
-with open("day7.txt", "r") as f:
+with open("2015_day7.txt", "r") as f:
   lines = f.readlines()
 for line in lines: 
   line = line[:-1]

@@ -10,7 +10,7 @@ using namespace std;
 
 
 int main() {
-  ifstream file("day7.txt"); 
+  ifstream file("2015_day7.txt"); 
   if (!file.is_open()) {
     cerr << "Failed to open the file." << std::endl;
     return 1;

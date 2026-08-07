@@ -2,7 +2,7 @@
 import ast
 import re
 
-with open("day8.txt") as f:
+with open("2015_day8.txt") as f:
 
   lines = f.readlines()
 s = 0

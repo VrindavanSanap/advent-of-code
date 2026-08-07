@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-with open("day3.txt") as f:
+with open("2015_day3.txt") as f:
   data = f.read().strip()
 
 floor_n = 0

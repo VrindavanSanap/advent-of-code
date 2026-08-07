@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-with open("day2.txt") as f:
+with open("2015_day2.txt") as f:
   data = f.read().split()
 
 total_paper_size = 0

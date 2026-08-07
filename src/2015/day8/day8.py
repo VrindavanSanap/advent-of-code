@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import ast
 
-with open("day8.txt") as f:
+with open("2015_day8.txt") as f:
 
   lines = f.readlines()
 s = 0
