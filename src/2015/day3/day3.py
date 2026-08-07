@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 with open("day3.txt") as f:
   data = f.read().strip()
 

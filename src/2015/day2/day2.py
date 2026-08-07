@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 with open("day2.txt") as f:
   data = f.read().split()
 

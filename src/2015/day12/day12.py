@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import json
 with open ('./day12.json') as f:
 		data = json.load(f)

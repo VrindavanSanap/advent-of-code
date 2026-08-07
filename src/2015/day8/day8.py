@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import ast
 
 with open("day8.txt") as f:
