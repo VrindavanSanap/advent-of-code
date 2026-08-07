@@ -1,5 +1,5 @@
 #!/usr/bin/local/env python
-with open("./day13.txt") as f:
+with open("./2015_day13.txt") as f:
 	lines = f.readlines()
 
 
