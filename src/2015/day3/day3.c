@@ -1,23 +1,47 @@
 #include <stdio.h>
 #include <string.h>
-int process_line(char buffer[]) {
-  int len = strlen(buffer);
-  for (int i = 0; i < len; i++) {
-    printf("%c", buffer[i]);
-  }
-  printf("\n");
-  return 0;
-}
-int main() {
-  FILE* file = fopen("2015_day3.txt", "r");
-  if (file == NULL) {
-    perror("Error opening file");
+
+#include "set.h"
+typedef struct {
+  int x;
+  int y;
+} coords;
+int compare_coords(const void *cp1, const void *cp2) {
+  const coords *c1 = (const coords *)cp1;
+  const coords *c2 = (const coords *)cp2;
+
+  if ((c1->x == c2->x) & (c1->y == c2->y)) {
+    return 0;
+  } else {
     return 1;
   }
-  char line_buffer[256];
-  while (fgets(line_buffer, sizeof(line_buffer), file) != NULL) {
-    printf("%s %d \n", line_buffer, (int)strlen(line_buffer));
+}
+int main() {
+  FILE *file = fopen("2015_day3.txt", "r");
+  int ch;
+  int n_presents = 0;
+  int x = 0;
+  int y = 0;
+  set *s = set_build(sizeof(coords), compare_coords);
+  while ((ch = fgetc(file)) != EOF) {
+    if (ch == '<') {
+      x -= 1;
+    }
+    if (ch == '>') {
+      x += 1;
+    }
+    if (ch == '^') {
+      y += 1;
+    }
+    if (ch == 'v') {
+      y -= 1;
+    }
+    coords c = {x, y};
+    set_insert(s, &c);
   }
+
+  n_presents = set_get_size(s);
+  printf("%d", n_presents);
   fclose(file);
   return 0;
 }
