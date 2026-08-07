@@ -11,7 +11,7 @@ int main() {
     } else if (ch == ')') {
       floor--;
     }
-    if (floor == -1){
+    if (floor == -1) {
       printf("Basement reached at char position %d\n", pos);
       break;
     }
