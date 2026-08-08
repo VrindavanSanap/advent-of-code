@@ -48,6 +48,7 @@ for char in data:
   else:
     visited.add((x2, y2))
 
-  print(f"{'S ' if move==-1 else 'R '}{char} {x1, y1} { x2, y2 } n_visited = {len(visited)}")
 
   move *= -1
+
+print(len(visited))
