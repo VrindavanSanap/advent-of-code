@@ -31,7 +31,7 @@ int main(int argc, char **argv) {
     CC_LONG length = (CC_LONG)sprintf(full_key, "%s%d", secret_key, ++i);
     CC_MD5(full_key, length, digest);
     if (digest[0] == 0 && digest[1] == 0 && digest[2] == 0) {
-      printf("%s %d\n", full_key, i );
+      printf("%s %d\n", full_key, i);
       break;
     }
   }
