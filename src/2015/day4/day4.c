@@ -1,15 +1,9 @@
+#include <CommonCrypto/CommonDigest.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-
-#if defined(__APPLE__)
-#define COMMON_DIGEST_FOR_OPENSSL
-#include <CommonCrypto/CommonDigest.h>
-#else
-#include <openssl/md5.h>
-#endif
 
 double nanos(void) {
   struct timespec ts;
