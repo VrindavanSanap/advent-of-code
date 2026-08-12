@@ -27,10 +27,12 @@ bool has_repeat_chars(char line[]) {
   return false;
 }
 bool contains_bad_substrings(char line[]) {
-  char *substrings[] = {"ab", "cd", "pq", "xy"};
-  int num_substrings = sizeof(substrings) / sizeof(substrings[0]);
-  for (int i = 0; i < num_substrings; i++) {
-    if (strstr(line, substrings[i]) != NULL) {
+  size_t line_len = strlen(line);
+  for (int i = 0; i+1 < line_len ; i++) {
+    char ch1 = line[i];
+    char ch2 = line[i + 1];
+    if ((ch1 == 'a' && ch2 == 'b') || (ch1 == 'c' && ch2 == 'd') ||
+        (ch1 == 'p' && ch2 == 'q') || (ch1 == 'x' && ch2 == 'y')) {
       return true;
     }
   }
@@ -39,15 +41,10 @@ bool contains_bad_substrings(char line[]) {
 
 bool is_nice_string(char line[]) {
   size_t line_len = strlen(line);
-  printf("size: %zu \n", line_len);
   int n_vowels_ = n_vowels(line);
-  printf("num vowels: %d \n", n_vowels_);
-  bool has_repeat_chars_ = has_repeat_chars(line);
-  printf("has repeat chars: %s \n", has_repeat_chars_ ? "true" : "false");
-  bool contains_bad_substrings_ = contains_bad_substrings(line);
-  printf("contains bad substrings: %s \n",
-         contains_bad_substrings_ ? "true" : "false");
-  if ((!contains_bad_substrings_) && has_repeat_chars_ && (n_vowels_ >= 3)) {
+  bool does_have_repeat_char = has_repeat_chars(line);
+  bool does_contain_bad_substrings = contains_bad_substrings(line);
+  if ((!does_contain_bad_substrings) && does_have_repeat_char && (n_vowels_ >= 3)) {
     return true;
   }
   return false;
@@ -59,18 +56,18 @@ int main() {
     perror("Error opening file");
     return 1;
   }
-  char line[100];
+  char *line = NULL;
   int i = 0;
   int total_nice_strings = 0;
-  while (fgets(line, sizeof(line), file) != NULL) {
+  size_t buf_size = 0;
+  ssize_t n_read;
+  while ((n_read = getline(&line, &buf_size, file)) != -1) {
     line[strcspn(line, "\n")] = '\0';
-    printf("%s \n", line);
     bool is_nice_string_ = is_nice_string(line);
-    printf("is_nice_string: %s \n", is_nice_string_ ? "true" : "false");
     total_nice_strings += is_nice_string_;
-    printf("Total nice strings: %d\n", total_nice_strings);
   }
-
+  free(line);
+  printf("Total nice strings: %d\n", total_nice_strings);
   fclose(file);
   return 0;
 }

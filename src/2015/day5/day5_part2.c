@@ -15,16 +15,17 @@ bool letter_repeat_with_gap(char line[]) {
   return false;
 }
 bool contains_bad_substrings(char line[]) {
-  char *substrings[] = {"ab", "cd", "pq", "xy"};
-  int num_substrings = sizeof(substrings) / sizeof(substrings[0]);
-  for (int i = 0; i < num_substrings; i++) {
-    if (strstr(line, substrings[i]) != NULL) {
+  size_t line_len = strlen(line);
+  for (int i = 0; i + 1 < line_len; i++) {
+    char ch1 = line[i];
+    char ch2 = line[i + 1];
+    if ((ch1 == 'a' && ch2 == 'b') || (ch1 == 'c' && ch2 == 'd') ||
+        (ch1 == 'p' && ch2 == 'q') || (ch1 == 'x' && ch2 == 'y')) {
       return true;
     }
   }
   return false;
 }
-
 bool contains_non_overlaping_repeat_bigram(char line[]) {
   size_t line_len = strlen(line);
 
@@ -44,13 +45,9 @@ bool contains_non_overlaping_repeat_bigram(char line[]) {
 
 bool is_nice_string(char line[]) {
   size_t line_len = strlen(line);
-  printf("%s s: %zu \n", line, line_len);
   bool letter_repeat_with_gap_ = letter_repeat_with_gap(line);
-  printf("letter_repeat_with_gap_ %d \n", letter_repeat_with_gap_);
   bool contains_non_overlaping_repeat_bigram_ =
       contains_non_overlaping_repeat_bigram(line);
-  printf("contains_non_overlaping_repeat_bigram_ %d \n",
-         contains_non_overlaping_repeat_bigram_);
   if (letter_repeat_with_gap_ && contains_non_overlaping_repeat_bigram_) {
     return true;
   }
@@ -69,12 +66,10 @@ int main() {
   while (fgets(line, sizeof(line), file) != NULL) {
     line[strcspn(line, "\n")] = '\0';
     bool is_nice_string_ = is_nice_string(line);
-    printf("is_nice_string_ %s \n", is_nice_string_ ? "true" : "false");
     total_nice_strings += is_nice_string_;
-    printf("Total nice strings: %d\n", total_nice_strings);
-    printf("---\n");
   }
 
+    printf("Total nice strings: %d\n", total_nice_strings);
   fclose(file);
   return 0;
 }
