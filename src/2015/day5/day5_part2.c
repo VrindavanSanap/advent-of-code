@@ -69,7 +69,7 @@ int main() {
     total_nice_strings += is_nice_string_;
   }
 
-    printf("Total nice strings: %d\n", total_nice_strings);
+  printf("Total nice strings: %d\n", total_nice_strings);
   fclose(file);
   return 0;
 }

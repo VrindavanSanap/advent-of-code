@@ -28,7 +28,7 @@ bool has_repeat_chars(char line[]) {
 }
 bool contains_bad_substrings(char line[]) {
   size_t line_len = strlen(line);
-  for (int i = 0; i+1 < line_len ; i++) {
+  for (int i = 0; i + 1 < line_len; i++) {
     char ch1 = line[i];
     char ch2 = line[i + 1];
     if ((ch1 == 'a' && ch2 == 'b') || (ch1 == 'c' && ch2 == 'd') ||
@@ -44,7 +44,8 @@ bool is_nice_string(char line[]) {
   int n_vowels_ = n_vowels(line);
   bool does_have_repeat_char = has_repeat_chars(line);
   bool does_contain_bad_substrings = contains_bad_substrings(line);
-  if ((!does_contain_bad_substrings) && does_have_repeat_char && (n_vowels_ >= 3)) {
+  if ((!does_contain_bad_substrings) && does_have_repeat_char &&
+      (n_vowels_ >= 3)) {
     return true;
   }
   return false;
