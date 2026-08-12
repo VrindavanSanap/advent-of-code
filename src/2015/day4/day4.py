@@ -5,19 +5,16 @@ import time
 # Create MD5 hash
 def mine(secret_key):
   i = 0 
+  secret_key = secret_key.encode()
   while True:
-    i += 1
-    md5_hash = hashlib.md5((text + str(i)).encode()).hexdigest()
-    if (i % 1000 == 0 ):
-      pass
-    if md5_hash[:6] == "000000":
-      print(f"{i} Mined in {md5_hash}")
-      break
-# String to hash
-text = "ckczppom"     
+    md5_hash = hashlib.md5(secret_key + str(i).encode()).digest()
 
+    if (md5_hash[0] == 0 and md5_hash[1] == 0 and md5_hash[2] == 0):
+      print(i)
+      break
+    i += 1
 st = time.time()
-mine(text)
+mine("ckczppom")
 et = time.time()
 print(f"Time taken = {et - st} sec")
 
