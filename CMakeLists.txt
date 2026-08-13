@@ -21,7 +21,7 @@ FetchContent_MakeAvailable(cjson)
 if(TARGET cjson AND cjson_SOURCE_DIR)
     target_include_directories(cjson PUBLIC $<BUILD_INTERFACE:${cjson_SOURCE_DIR}>)
 endif()
-
+find_package(Torch REQUIRED)
 # Add the library directory first so it is available to apps
 add_subdirectory(libs)
 
