@@ -1,22 +1,44 @@
 #include <ATen/ATen.h>
+
+#include <fstream>
 #include <iostream>
+#include <regex>
 
+using namespace std;
 int main() {
-    // Create a 2x3 tensor filled with random values
-    at::Tensor x = at::rand({2, 3});
+  auto opts = at::TensorOptions().dtype(at::kBool);
+  at::Tensor lights = at::zeros({1000, 1000}, opts);
+  ifstream file("2015_day6.txt");
+  if (!file.is_open()) {
+    cerr << "Error: could not open file" << endl;
+    return 1;
+  }
+  string line;
+  regex pattern(R"((on|off|toggle)\s(\d+),(\d+)\D+(\d+),(\d+))");
 
-    // Create a matrix of ones with a specific datatype
-    at::Tensor y = at::ones({3, 2}, at::kFloat);
+  smatch matches;
 
-    // Perform matrix multiplication
-    at::Tensor z = at::matmul(x, y);
+  while (getline(file, line)) {
+    regex_search(line, matches, pattern);
+    int x1 = stoi(matches[2]);
+    int y1 = stoi(matches[3]);
+    int x2 = stoi(matches[4]);
+    int y2 = stoi(matches[5]);
+    if (matches[1] == "toggle") {
+      lights.slice(0, x1, x2 + 1).slice(1, y1, y2 + 1) =
+          ~lights.slice(0, x1, x2 + 1).slice(1, y1, y2 + 1);
+    }
+    if (matches[1] == "on") {
+      lights.slice(0, x1, x2 + 1).slice(1, y1, y2 + 1).fill_(1);
+    }
+    if (matches[1] == "off") {
+      lights.slice(0, x1, x2 + 1).slice(1, y1, y2 + 1).fill_(0);
+    }
+  }
 
-    // Print tensor properties and contents
-    std::cout << "Result shape: " << z.sizes() << std::endl;
-    std::cout << "Result tensor:\n" << z << std::endl;
+  file.close();
+  int total = lights.sum().item<int>();
+  cout << total << endl;
 
-    // CUDA example (check availability first)
-
-
-    return 0;
+  return 0;
 }
