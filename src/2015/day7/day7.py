@@ -2,7 +2,6 @@
 
 wires = {}
 class Wire:
-  global wires
   def __init__(self, label = '', op=None, l_label=None, r_label=None, value = None):
     self.left = l_label 
     self.right = r_label 
@@ -76,7 +75,6 @@ with open("2015_day7.txt", "r") as f:
   lines = f.read().split('\n')
 
 for line in lines: 
-  print(line)
   wire_str = line.split()
 
   if (wire_str[0] == "NOT"):
