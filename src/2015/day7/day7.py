@@ -124,4 +124,12 @@ for line in lines:
     print("error")
     break
 
-print([wires['a']])
+a = wires['a'].out_()
+print(a)
+for wire in wires:
+  wires[wire].out = None
+
+wires['b'].op = None
+wires['b'].value = a
+
+print(wires['a'].out_())
