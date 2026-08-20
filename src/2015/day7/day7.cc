@@ -9,7 +9,7 @@
 using namespace std;
 
 bool is_number(string s) {
-  if (s.empty()){
+  if (s.empty()) {
     return false;
   }
   for (char c : s) {
@@ -62,7 +62,6 @@ class Wire {
       return out.value();
     }
 
-
     if (op == "OR") {
       out = resolve(left.value()) | resolve(right.value());
     }
@@ -93,7 +92,6 @@ int main() {
   regex ass_op(R"((\w+)\s(->)\s(\w+))");
   smatch matches;
   while (getline(file, line)) {
-
     /*
       five possible operations
       Assignment OP
@@ -138,5 +136,17 @@ int main() {
   }
   auto a = wires["a"].out_();
   cout << a << endl;
+
+  for (auto &[key, value] : wires) {
+    if (value.op.has_value()) {
+      value.out.reset();
+    }
+  }
+  wires["b"].op.reset();
+  wires["b"].out = a;
+
+  a = wires["a"].out_();
+  cout << a << endl;
+
   return 0;
 }
