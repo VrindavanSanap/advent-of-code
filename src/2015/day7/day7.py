@@ -124,6 +124,7 @@ for line in lines:
 
 a = wires['a'].out_()
 print(a)
+
 for wire in wires:
   wires[wire].out = None
 
