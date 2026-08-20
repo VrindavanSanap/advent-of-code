@@ -1,15 +1,28 @@
-with open("day1.txt") as f:
-  number_strings = f.readlines()
+#!/usr/bin/python3
+with open("day2.txt") as f:
+  lines = f.readlines()
 
-s = 0 
-sum_list = []
-for i in number_strings:
-  if i != "\n":
-    i = int(i)
-    s += int(i)
-  else:
-    sum_list.append(s)
-    s = 0 
+def result(your, their):
+  results = [[0, -1, 1], # R | R P S
+             [1, 0, -1], # P | R P S
+             [-1, 1, 0]] # S | R P S
+  return results[your][their]
+total_score = 0 
+count = 0 
+for line in lines:
+  score = 0 
+  their = ord(line[0]) - 65
+  your = ord(line[2]) - 65 - 26 + 3
+  score += your + 1
+  res = result(your, their)
 
-print(((sorted(sum_list))[-3:]))
-print(sum((sorted(sum_list))[-3:]))
+  if res == 1: # you won
+    score += 6
+
+  elif res == 0:
+    score += 3
+  count += 1 
+  print(f"shape score {your + 1} match score {score - your - 1} total score {score}")
+  print(count, your, their, score)
+  total_score += score
+  print(total_score)
