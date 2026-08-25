@@ -50,7 +50,6 @@ bool is_valid_password(const char* pass) {
 }
 
 bool increment_password(char* pass, char* max_pass, size_t index) {
-
   assert(strcmp(pass, max_pass) != 0);
   if (pass[index] == 'z') {
     pass[index] = 'a';
