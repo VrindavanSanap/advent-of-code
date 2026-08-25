@@ -61,7 +61,7 @@ int total_sum(cJSON* json_i) {
   return total;
 }
 int main() {
-  const char* filename = "./day12.json";
+  const char* filename = "./2015_day12.json";
   char* json_data = read_json_file(filename);
   if (json_data == NULL) {
     return 1;
