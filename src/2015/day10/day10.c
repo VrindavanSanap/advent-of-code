@@ -5,7 +5,6 @@
 
 char* look_and_say(char* num) {
   char* output_num = malloc(2 * strlen(num) + 1);
-  strcpy(output_num, num);
   int num_len = strlen(num);
   int i = 0;
   int count = 1;
@@ -33,8 +32,6 @@ int main() {
   printf("%s\n", current_str);
   for (int i = 0; i < iterations; i++) {
     char* next_str = look_and_say(current_str);
-    // printf("%s\n", next_str);
-    printf("After iteration %d: length = %zu\n", i + 1, strlen(next_str));
     free(current_str);
     current_str = next_str;
   }
