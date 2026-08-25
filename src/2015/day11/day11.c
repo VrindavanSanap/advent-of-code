@@ -5,7 +5,6 @@
 #include <string.h>
 
 bool has_increasing_straight(const char* pass) {
-  // Placeholder implementation
   int len = strlen(pass);
   for (int i = 0; i < len - 3; i++) {
     if (pass[i + 1] == pass[i] + 1 && pass[i + 2] == pass[i] + 2) {
@@ -15,7 +14,6 @@ bool has_increasing_straight(const char* pass) {
   return false;
 }
 bool contains_no_invalid_chars(const char* pass) {
-  // Placeholder implementation
   int len = strlen(pass);
   for (int i = 0; i < len; i++) {
     if (pass[i] == 'i' || pass[i] == 'o' || pass[i] == 'l') {
@@ -25,7 +23,6 @@ bool contains_no_invalid_chars(const char* pass) {
   return true;
 }
 bool has_two_non_overlapping_pairs(const char* pass) {
-  // Placeholder implementatio
   int len = strlen(pass);
   int pair_count = 0;
   for (int i = 0; i < len - 1; i++) {
@@ -40,7 +37,6 @@ bool has_two_non_overlapping_pairs(const char* pass) {
   return true;
 }
 bool is_valid_password(const char* pass) {
-  // Placeholder implementation
   if (!has_increasing_straight(pass)) {
     return false;
   }
@@ -54,7 +50,6 @@ bool is_valid_password(const char* pass) {
 }
 
 bool increment_password(char* pass, char* max_pass, size_t index) {
-  // Placeholder implementation
 
   assert(strcmp(pass, max_pass) != 0);
   if (pass[index] == 'z') {
@@ -85,4 +80,5 @@ int main() {
 
   printf("%s\n", pass);
   free(max_pass);
+  free(pass);
 }
