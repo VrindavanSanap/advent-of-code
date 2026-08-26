@@ -62,7 +62,7 @@ int main() {
   dynamic_array* persons = da_build(sizeof(struct person));
   char* person_names[] = {"Alice", "Bob", "Carol", "David"};
 
-  char* filename = "day13.txt";
+  char* filename = "2015_day13.txt";
   FILE* fp = fopen(filename, "r");
   if (fp == NULL) {
     printf("Error opening file %s\n", filename);
