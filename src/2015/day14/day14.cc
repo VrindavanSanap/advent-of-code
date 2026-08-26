@@ -2,7 +2,16 @@
 #include <iostream>
 #include <regex>
 using namespace std;
-
+class Reindeer {
+  int speed;
+  int run_time;
+  int rest_time;
+  int time_step = 0;
+  int position = 0;
+  Reindeer(int speed, int run_time, int rest_time)
+      : speed(speed), run_time(run_time), rest_time(rest_time) {}
+  int step() {}
+};
 
 int main() {
   fstream file("2015_day14_smol.txt");
