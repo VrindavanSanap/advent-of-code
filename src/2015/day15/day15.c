@@ -38,9 +38,9 @@ ingredient cookie_properties(ingredient sprinkles, ingredient peanut_butter,
   total_texture += (sugar.texture * n_sugar);
 
   int total_calories = (sprinkles.calories * n_sprinkles);
-  total_calories+= (peanut_butter.calories * n_peanut_butter);
-  total_calories+= (frosting.calories * n_frosting);
-  total_calories+= (sugar.calories * n_sugar);
+  total_calories += (peanut_butter.calories * n_peanut_butter);
+  total_calories += (frosting.calories * n_frosting);
+  total_calories += (sugar.calories * n_sugar);
 
   ingredient cookie = {max(total_capacity, 0), max(total_durability, 0),
                        max(total_flavor, 0), max(total_texture, 0),
