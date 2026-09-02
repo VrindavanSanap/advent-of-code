@@ -6,10 +6,9 @@ int surface_area(const int height, const int width, const int length) {
   int side_1 = height * width;
   int side_2 = height * length;
   int side_3 = width * length;
-  int cuboid_area = (2 * side_1) + (2 * side_2) + (2 * side_3);
+  int cuboid_area = 2 * (side_1 + side_2 + side_3);
   int slack = MIN(MIN(side_1, side_2), side_3);
   cuboid_area += slack;
-
   return cuboid_area;
 }
 
