@@ -3,7 +3,7 @@ const file = Bun.file(path);
 const text = await file.text()
 const lines = text.trim().split("\n");
 
-function surface_area(height, width, length) {
+function surface_area(height:number, width:number, length:number):number {
 	let side_1 = height * width;
 	let side_2 = length * width;
 	let side_3 = length * height;

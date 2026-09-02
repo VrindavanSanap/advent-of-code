@@ -4,7 +4,7 @@
     {
       "type": "shell",
       "label": "C/C++: clang++ build active file",
-      "command": "/usr/bin/clang++",
+      "command": "mkdir -p '${workspaceFolder}/build/scratch' && /usr/bin/clang++",
       "args": [
         "-std=c++17",
         "-fcolor-diagnostics",
@@ -12,7 +12,7 @@
         "-g",
         "${file}",
         "-o",
-        "${fileDirname}/${fileBasenameNoExtension}"
+        "${workspaceFolder}/build/scratch/${fileBasenameNoExtension}"
       ],
       "options": {
         "cwd": "${fileDirname}"

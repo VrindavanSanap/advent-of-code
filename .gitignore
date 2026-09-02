@@ -19,7 +19,12 @@ Makefile
 
 .cache
 
+src/**/*
+!src/**/
+!src/**/*.*
+
 # Compiled binaries and object files
+a.out
 *.o
 *.out
 *.dSYM/
@@ -37,6 +42,14 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+
+# Node / Bun
+node_modules/
+*.tsbuildinfo
+npm-debug.log*
+yarn-error.log*
+.env
+.env.local
 
 # OS
 .DS_Store
