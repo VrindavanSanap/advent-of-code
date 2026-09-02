@@ -1,3 +1,4 @@
+#include <array>
 #include <fstream>
 #include <iostream>
 #include <utility>
@@ -21,7 +22,7 @@ vector<pair<int, int>> neighbours(int i, int j, int width, int height) {
   return neighbours_l;
 }
 int main() {
-  fstream file("./2015_day18_smol.txt");
+  fstream file("./2015_day18.txt");
   string line;
   vector<string> data;
   vector<string> new_data;
@@ -31,7 +32,7 @@ int main() {
   int height = data.size();
   int width = data[0].size();
   new_data = data;
-  for (int k = 0; k < 5; k++) {
+  for (int k = 0; k < 100; k++) {
     for (int i = 0; i < width; i++) {
       for (int j = 0; j < height; j++) {
         char data_i = data[j][i];
@@ -56,5 +57,13 @@ int main() {
     }
     data = new_data;
   }
-  for
+  int s = 0;
+  for (const auto &line : data) {
+    for (int i = 0; i < line.size(); i++) {
+      if (line[i] == '#') {
+        s++;
+      }
+    }
+  }
+  cout << s << endl;
 }
