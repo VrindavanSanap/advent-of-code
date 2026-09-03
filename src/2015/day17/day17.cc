@@ -11,6 +11,8 @@ int main() {
   while (getline(file, line)) {
     s.emplace_back(stoi(line));
   }
-  
+  for (const auto a : s) {
+    cout << a << endl;
+  }
   return 0;
 }
