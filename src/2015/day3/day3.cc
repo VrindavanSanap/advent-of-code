@@ -1,17 +1,15 @@
 #include <fstream>
 #include <iostream>
 #include <set>
-#include <utility>
 
 using namespace std;
 int main() {
-  ifstream file("./2015_day3.txt", ios::binary);
-  int ch;
+  ifstream file("./2015_day3.txt");
+  char ch;
   int x;
   int y;
   set<pair<int, int>> coords;
   while ((ch = file.get()) != EOF) {
-    char c = static_cast<char>(ch);
     if (ch == '<') {
       x -= 1;
     }
