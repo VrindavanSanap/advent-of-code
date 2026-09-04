@@ -1,9 +1,9 @@
 const path = "./2015_day3.txt"
 const file = Bun.file(path)
 const text = await file.text();
-let x = 0;
-let y = 0;
-const s = new Set();
+let x :number = 0;
+let y :number = 0;
+const s = new Set<string>();
 for (let i = 0; i < text.length; i++) {
 
 	if (text[i] == '<') {
@@ -18,7 +18,7 @@ for (let i = 0; i < text.length; i++) {
 	if (text[i] == 'v') {
 		y -= 1;
 	}
-	s.add(JSON.stringify({ x, y }));
+	s.add(`${x},${y}`);
 
 };
 console.log(s.size)
