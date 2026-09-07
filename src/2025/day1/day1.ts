@@ -5,7 +5,7 @@ const text = await file.text()
 
 let position = 50;
 let sum = 0;
-function mod(a, b) {
+function mod(a:number, b:number):number {
 	let r = a % b;
 	if (r < 0) {
 		r += b;
