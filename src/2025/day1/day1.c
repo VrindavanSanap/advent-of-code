@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 int mod(int a, int n) {
   int r = a % n;
   if (r < 0) {
@@ -7,6 +8,7 @@ int mod(int a, int n) {
   }
   return r;
 }
+
 int main() {
   char* file_name = "2025_day1.txt";
   FILE* fp = fopen(file_name, "r");
@@ -22,21 +24,16 @@ int main() {
   while (fgets(line, sizeof(line), fp)) {
     direction = line[0];
     distance = atoi(&line[1]);
-    printf("direction = %c distance = %d position = %d\n", direction, distance,
-           position);
     if (direction == 'L') {
-      position -= distance;
-      position = mod(position, 100);
+      position = mod(position - distance, 100);
     } else if (direction == 'R') {
-      position += distance;
-      position = mod(position, 100);
+      position = mod(position + distance, 100);
     }
     if (position == 0) {
       sum++;
     }
-    printf("updated position = %d\n", position);
   }
-  printf("sum = %d\n", sum);
+  printf("%d\n", sum);
   fclose(fp);
   return 0;
 }
