@@ -5,7 +5,7 @@
 #include <string.h>
 
 int main() {
-  char* file_name = "day4.txt";
+  char* file_name = "2025_day4.txt";
   char* line = NULL;
   size_t len = 0;
   ssize_t read;

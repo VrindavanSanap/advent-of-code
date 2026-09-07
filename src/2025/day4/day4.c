@@ -117,7 +117,7 @@ int main() {
   size_t size;
   int height, width;
   char* rolls_of_paper =
-      read_file_to_buffer("day4.txt", &size, &height, &width);
+      read_file_to_buffer("2025_day4.txt", &size, &height, &width);
   char* rolls_to_remove = calloc(height * width, sizeof(bool));
   if (rolls_of_paper == NULL) {
     return EXIT_FAILURE;

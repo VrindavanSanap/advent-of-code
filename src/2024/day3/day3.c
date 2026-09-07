@@ -7,7 +7,7 @@ int main() {
   regex_t regex;
   regmatch_t matches[1];
   const char *pattern = "[a-zA-Z]*mul\\(\\-?[0-9]+,\\-?[0-9]+\\)";
-  char *filename = "day3_smol.txt";
+  char *filename = "2024_day3_smol.txt";
   FILE *fp = fopen(filename, "r");
   char cm_chunk[255];
   if (fp == NULL) {

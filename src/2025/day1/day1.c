@@ -8,20 +8,18 @@ int mod(int a, int n) {
   return r;
 }
 int main() {
-  char* file_name = "day1.txt";
+  char* file_name = "2025_day1.txt";
   FILE* fp = fopen(file_name, "r");
-  char line[256];
+  char line[32];
   char direction;
   int distance;
   int position = 50;
   if (fp == NULL) {
-    printf("Failed to read the file");
+    printf("Failed to read the file\n");
     return 1;
   }
   int sum = 0;
   while (fgets(line, sizeof(line), fp)) {
-    // printf("%s", line);
-    // parse line into direction and distance
     direction = line[0];
     distance = atoi(&line[1]);
     printf("direction = %c distance = %d position = %d\n", direction, distance,

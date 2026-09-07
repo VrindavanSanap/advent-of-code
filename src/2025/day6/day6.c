@@ -19,7 +19,7 @@ void remove_spaces(char *str) {
 }
 
 int main(int argc, char *argv[]) {
-  char *file_name = "./day6.txt";
+  char *file_name = "./2025_day6.txt";
   FILE *file = fopen(file_name, "r");
   if (!file) {
     perror("Error opening file");

@@ -12,7 +12,7 @@ struct range {
 };
 
 int main(int argc, char *argv[]) {
-  char *file_name = "./day5.txt";
+  char *file_name = "./2025_day5.txt";
   FILE *file = fopen(file_name, "r");
   if (!file) {
     perror("Error opening file");

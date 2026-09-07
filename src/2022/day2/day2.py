@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-with open("day2.txt") as f:
+with open("2022_day2.txt") as f:
   lines = f.readlines()
 
 def result(your, their):

@@ -3,7 +3,20 @@
 #include <vector>
 
 using namespace std;
+vector<vector<int>> combinations(vector<int> data, int num_elem) {
+  // given a vector data and # elements num_elem
+  // returns all the possible combinations of the data
+  // containing num_elem elements
 
+
+
+
+
+
+
+
+
+}
 int main() {
   fstream file("./2015_day17.txt");
   string line;

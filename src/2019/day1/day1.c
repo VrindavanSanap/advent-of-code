@@ -13,7 +13,7 @@ int mass_to_fuel(int mass) {
 
 int main() {
   FILE* file_pointer;
-  char filename[] = "day1.txt";
+  char filename[] = "2019_day1.txt";
   char buffer[20];
   int total_fuel = 0;
   file_pointer = fopen(filename, "r");

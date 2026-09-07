@@ -36,14 +36,14 @@ int count_crossing(int position, int new_position, int distance) {
 }
 
 int main() {
-  char* file_name = "day1.txt";
+  char* file_name = "2025_day1.txt";
   FILE* fp = fopen(file_name, "r");
   char line[256];
   char direction;
   int distance;
   int position = 50;
   if (fp == NULL) {
-    printf("Failed to read the file");
+    printf("Failed to read the file\n");
     return 1;
   }
   int sum = 0;

@@ -3,7 +3,7 @@
 
 using namespace std;
 int main() {
-  ifstream inputFile("day1.txt");
+  ifstream inputFile("day1/2022_day1.txt");
 
   if (inputFile.is_open()) {
     string calorie_string;

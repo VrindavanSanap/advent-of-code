@@ -5,7 +5,7 @@
 #include <string.h>
 
 int main(int argc, char *argv[]) {
-  char *file_name = "./day9.txt";
+  char *file_name = "./2025_day9.txt";
   if (argc > 1) {
     file_name = argv[1];
   }

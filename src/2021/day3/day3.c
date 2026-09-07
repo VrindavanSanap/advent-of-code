@@ -4,7 +4,7 @@
 #include <string.h>
 #define NUM_BITS 12
 int main() {
-  char* file_name = "day3.txt";
+  char* file_name = "2021_day3.txt";
   FILE* file = fopen(file_name, "r");
   if (file == NULL) {
     printf("Error opening file: %s\n", file_name);

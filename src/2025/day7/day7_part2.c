@@ -7,7 +7,7 @@
 #include "dynamic_array.h"
 
 int main(int argc, char *argv[]) {
-  char *file_name = "./day7.txt";
+  char *file_name = "./2025_day7.txt";
   FILE *file = fopen(file_name, "r");
   if (!file) {
     perror("Error opening file");

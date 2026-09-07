@@ -56,7 +56,7 @@ bool safe_unsafe(int arr[], int size) {
 }
 
 int main() {
-  char *file_name = "day2.txt";
+  char *file_name = "2024_day2.txt";
   FILE *fp = fopen(file_name, "r");
   int level[8];
   char line[511];

@@ -14,7 +14,7 @@ uint64_t area_rect(struct point p1, struct point p2) {
   return (uint64_t)(abs(p1.x - p2.x) + 1) * (abs(p1.y - p2.y) + 1);
 }
 int main(int argc, char *argv[]) {
-  char *file_name = "./day9.txt";
+  char *file_name = "./2025_day9.txt";
   if (argc == 2) {
     file_name = argv[1];
   }

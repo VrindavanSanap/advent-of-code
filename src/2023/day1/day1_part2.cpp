@@ -150,7 +150,7 @@ int main() {
   // get_last_string_int("4nineeightseven2"); cout << "4nineeightseven2"
   //      << "-" << string_int << "-" << string_int_index << endl;
 
-  ifstream file("day1.txt");
+  ifstream file("2023_day1.txt");
   vector<std::string> lines;
   string line;
   while (getline(file, line)) {

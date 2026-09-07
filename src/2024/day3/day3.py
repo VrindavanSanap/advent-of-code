@@ -1,6 +1,6 @@
 import re
 regex_pattern = r"(mul\(\-?\d+,\-?\d+\))"
-with open("day3.txt", "r") as f:
+with open("2024_day3.txt", "r") as f:
   corrupted_memory = f.read()
 
 print(corrupted_memory)

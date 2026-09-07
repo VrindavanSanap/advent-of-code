@@ -17,7 +17,7 @@ int get_number(string line) {
   return stoi(output);
 };
 int main() {
-  ifstream file("day1.txt");
+  ifstream file("2023_day1.txt");
   vector<std::string> lines;
   string line;
   while (getline(file, line)) {

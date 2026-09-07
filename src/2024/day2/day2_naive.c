@@ -93,7 +93,7 @@ bool safe_unsafe_damp(int level[], int size) {
 }
 
 int main() {
-  char *file_name = "day2.txt";
+  char *file_name = "2024_day2.txt";
   FILE *fp = fopen(file_name, "r");
   int levels[8];
   char line[511];

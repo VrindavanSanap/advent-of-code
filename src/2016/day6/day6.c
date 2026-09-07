@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 int main() {
-  char* file_name = "day6.txt";
+  char* file_name = "2016_day6.txt";
   FILE* fp = fopen(file_name, "r");
   if (fp == NULL) {
     printf("Error opening file %s\n", file_name);

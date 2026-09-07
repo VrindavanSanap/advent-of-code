@@ -50,10 +50,10 @@ bool check_valid(unsigned long long num) {
 }
 
 int main() {
-  char* file_name = "day2.txt";
+  char* file_name = "2025_day2.txt";
   FILE* fp = fopen(file_name, "r");
   if (fp == NULL) {
-    printf("Failed to read the file");
+    printf("Failed to read the file\n");
     return 1;
   }
 

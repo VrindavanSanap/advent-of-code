@@ -69,7 +69,7 @@ int count_lit_pixels(bool screen[WIDTH][HEIGHT]) {
   return count;
 }
 int main() {
-  char* file_name = "day8.txt";
+  char* file_name = "2016_day8.txt";
   FILE* file = fopen(file_name, "r");
   if (file == NULL) {
     printf("Error opening file %s\n", file_name);

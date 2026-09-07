@@ -44,7 +44,7 @@ char* get_decompressed(char* str) {
 }
 bool contains_marker(char* str) { return (strchr(str, '(') != NULL); }
 int main() {
-  char* file_name = "day9.txt";
+  char* file_name = "2016_day9.txt";
   FILE* file = fopen(file_name, "r");
   char* line = NULL;
   size_t size = 0;

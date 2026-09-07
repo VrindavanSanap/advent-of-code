@@ -7,7 +7,7 @@ using namespace std;
 int main() {
   Max_pq pq;
 
-  ifstream inputFile("day1.txt");
+  ifstream inputFile("2022_day2.txt");
 
   if (inputFile.is_open()) {
     string calorie_string;

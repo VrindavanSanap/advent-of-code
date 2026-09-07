@@ -8,7 +8,7 @@
 #include "dynamic_array.h"
 
 int main(int argc, char *argv[]) {
-  char *file_name = "./day11.txt";
+  char *file_name = "./2025_day11.txt";
   if (argc == 2) {
     file_name = argv[1];
   }

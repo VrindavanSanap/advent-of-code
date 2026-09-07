@@ -1,6 +1,6 @@
 #include <stdio.h>
 int main() {
-  FILE *file = fopen("2017_day2.txt", "r");
+  FILE *file = fopen("day9.txt", "r");
   if (file == NULL) {
     perror("Error opening file");
     return 1;

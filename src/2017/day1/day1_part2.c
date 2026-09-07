@@ -54,7 +54,7 @@ char* read_file(const char* filename) {
 }
 
 int main() {
-  const char* filename = "day1.txt";  // Replace with your file name
+  const char* filename = "2017_day1.txt";  // Replace with your file name
   char* file_contents = read_file(filename);
   char* file_contents_striped = strip(file_contents);
   free(file_contents);

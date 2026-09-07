@@ -73,7 +73,7 @@ bool safe_unsafe(int level[], int size) {
 }
 
 int main() {
-  char *file_name = "day2_smol.txt";
+  char *file_name = "2024_day2_smol.txt";
   FILE *fp = fopen(file_name, "r");
   int level[8];
   char line[511];

@@ -37,7 +37,7 @@ int get_max_joltage(char* bank) {
   return max_joltage;
 }
 int main() {
-  char* file_name = "day3.txt";
+  char* file_name = "2025_day3.txt";
   char* line = NULL;  // Pointer to the buffer
   size_t len = 0;     // Size of the allocated buffer
   ssize_t read;       // Number of characters read

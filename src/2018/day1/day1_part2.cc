@@ -4,7 +4,7 @@ using namespace std;
 
 int main() {
   FILE* file_pointer;
-  char filename[] = "day1.txt";
+  char filename[] = "2018_day1.txt";
   char buffer[20];
   int sum = 0;
   set<int> visited;

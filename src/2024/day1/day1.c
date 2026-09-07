@@ -8,7 +8,7 @@ int compare_ints(const void *num1, const void *num2) {
   return x - y;
 }
 int main() {
-  char *file_name = "day1.txt";
+  char *file_name = "2024_day1.txt";
   char line[256];
 
   int n1s[N_LINES];
@@ -16,7 +16,7 @@ int main() {
 
   FILE *fp = fopen(file_name, "r");
   if (fp == NULL) {
-    printf("Failed to read the file");
+    printf("Failed to read the file\n");
     return 1;
   }
   int n1;

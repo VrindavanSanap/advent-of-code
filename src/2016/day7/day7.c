@@ -43,7 +43,7 @@ bool validate_line(char* line) {
   return is_valid;
 }
 int main() {
-  char* file_name = "day7.txt";
+  char* file_name = "2016_day7.txt";
   FILE* file = fopen(file_name, "r");
   if (file == NULL) {
     printf("Error opening file %s\n", file_name);

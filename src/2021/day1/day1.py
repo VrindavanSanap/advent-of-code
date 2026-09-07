@@ -1,6 +1,6 @@
 import numpy as np
 
-with open("day1.txt") as f:
+with open("2021_day1.txt") as f:
   data = f.read().split()
 
 data = [int(i) for i in data]
