@@ -28,7 +28,7 @@ int count_crossing(int position, int new_position, int distance) {
   if (new_position < 0) {
     n_crossings += 1;
     if (position == 0) {
-      return n_crossings - 1;
+      n_crossings -= 1;
     }
   }
 
@@ -38,7 +38,7 @@ int count_crossing(int position, int new_position, int distance) {
 int main() {
   char* file_name = "2025_day1.txt";
   FILE* fp = fopen(file_name, "r");
-  char line[256];
+  char line[32];
   char direction;
   int distance;
   int position = 50;
@@ -49,7 +49,6 @@ int main() {
   int sum = 0;
   int new_postion;
   while (fgets(line, sizeof(line), fp)) {
-    // printf("%s", line);
     // parse line into direction and distance
     direction = line[0];
     distance = atoi(&line[1]);

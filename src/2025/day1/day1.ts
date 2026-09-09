@@ -1,5 +1,3 @@
-// const text = await file.text()
-
 const file = Bun.file("./2025_day1.txt");
 const text = await file.text()
 
@@ -12,6 +10,7 @@ function mod(a:number, b:number):number {
 	}
 	return r;
 }
+
 for (const line of text.trim().split("\n")) {
 	const direction = line[0]
 	const distance = parseInt(line.slice(1), 10);
@@ -20,7 +19,7 @@ for (const line of text.trim().split("\n")) {
 	} else if (direction == 'R') {
 		position = mod(position + distance, 100)
 	}
-	if (position == 0) {
+	if (position === 0) {
 		sum++;
 	}
 }
