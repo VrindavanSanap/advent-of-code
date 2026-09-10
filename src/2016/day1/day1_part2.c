@@ -39,13 +39,13 @@ int main() {
   set *points = set_build(sizeof(point), compare);
   while (token != NULL) {
     if (token[0] == 'R') {
-      current_dir += 1;
+      current_dir++;
     } else if (token[0] == 'L') {
-      current_dir -= 1;
+      current_dir--;
     }
     current_dir = mod(current_dir, 4);
-    int d = atoi(token + 1);
-    for (int i = 0; i < d; i++) {
+    int steps = atoi(token + 1);
+    for (int i = 0; i < steps; i++) {
       x += directions[current_dir][0];
       y += directions[current_dir][1];
       point p;
@@ -54,7 +54,7 @@ int main() {
       if (set_find(points, &p)) {
         int dist = abs(x) + abs(y);
         printf("%d\n", dist);
-        exit(0);
+        return 0;
       }
       set_insert(points, &p);
     }
